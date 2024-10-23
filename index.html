@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24 GAME</title>
+    <link rel="shortcut icon" href="images/s1.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="score"><span id="score1">0</span> - <span id="score2">0</span></h1>
+    <input type="text" name="" id="GameCode">
+    <input type="button" value="Go" id="GoBtn">
+    <div class="game-board" id="main">
+        <!-- المربعات الخاصة باللاعب الأول (24 مربعًا) -->
+        <div class="box player1"><img src="images/s1.png" id="image1" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image2" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image3" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image4" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image5" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image6" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image7" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image8" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image9" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image10" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image11" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image12" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image13" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image14" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image15" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image16" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image17" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image18" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image19" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image20" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image21" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image22" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image23" class="img1"></div>
+        <div class="box player1"><img src="images/s1.png" id="image24" class="img1"></div>
+
+        <!-- المربع الفارغ في المنتصف -->
+        <div class="box empty"></div>
+
+        <!-- المربعات الخاصة باللاعب الثاني (24 مربعًا) -->
+        <div class="box player2"><img src="images/s2.png" id="image25" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image26" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image27" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image28" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image29" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image30" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image31" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image32" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image33" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image34" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image35" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image36" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image37" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image38" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image39" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image40" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image41" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image42" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image43" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image44" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image45" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image46" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image47" class="img2"></div>
+        <div class="box player2"><img src="images/s2.png" id="image48" class="img2 stoon" draggable="true"></div>
+    </div>
+    <div class="stoons">
+        <h3>STONE STORE</h3>
+        <div id="numberOfStoons">
+            player1stone <p id="player1stoon">0</p>
+            player2stone <p id="player2stoon">0</p>
+        </div>
+    </div>
+    <div class="countdown-container">
+        <div id="countdown">0</div>
+        <div id="countdown-message">player1 playing</div>
+    </div>
+    <div class="restBtn" onclick="re();">rest Stone</div>
+    <div class="restBtnA" onclick="reA();">rest Game</div>
+    <script src="script.js"></script>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+        import { getDatabase, ref, set,onValue,push,child } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+    
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCUqhe5im-x-olF6CkavjZtABdxBaOVhmI",
+            authDomain: "game-bc3dc.firebaseapp.com",
+            databaseURL: "https://game-bc3dc-default-rtdb.firebaseio.com",
+            projectId: "game-bc3dc",
+            storageBucket: "game-bc3dc.appspot.com",
+            messagingSenderId: "247861221695",
+            appId: "1:247861221695:web:8455dde387f2d2da9c1b8a",
+            measurementId: "G-DWZ4DGYXJD"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const database = getDatabase(app);
+    
+        // Function to set user data in the database
+       /* 
+        document.getElementById("GoBtn").onclick = function setUserData() {
+            var GameCode = document.getElementById("GameCode").value;
+            console.log(GameCode);
+
+            const Code = ref(database, GameCode + "/");
+            set(Code, {
+                name: "new Game " + GameCode
+            })
+            .then(() => {
+                console.log("User  data set successfully.");
+            })
+            .catch((error) => {
+                console.error("Error setting user data: ", error);
+            });
+        }
+*/
+        /*----test----*/
+
+    let currentGameCode = '';
+    let isPlayer1 = true; // لتحديد دور اللاعب
+
+    // إضافة مستمعات الأحداث بعد تحميل المستند
+    document.addEventListener('DOMContentLoaded', () => {
+        const goBtn = document.getElementById('GoBtn');
+        const gameCodeInput = document.getElementById('GameCode');
+
+        // التعامل مع زر Go
+        goBtn.addEventListener('click', () => {
+            currentGameCode = gameCodeInput.value.trim();
+            if (currentGameCode) {
+                joinGame(currentGameCode);
+            }
+        });
+
+        // إضافة مستمعات السحب والإفلات
+        setupDragAndDrop();
+    });
+
+    // الانضمام إلى اللعبة
+    function joinGame(gameCode) {
+        const gameRef = ref(database, `games/${gameCode}`);
+        
+        // التحقق مما إذا كانت اللعبة موجودة
+        onValue(gameRef, (snapshot) => {
+            if (!snapshot.exists()) {
+                // إنشاء لعبة جديدة
+                set(gameRef, {
+                    created: Date.now(),
+                    currentPlayer: 1,
+                    status: 'active'
+                }).then(() => {
+                    isPlayer1 = true;
+                    console.log('Created new game as Player 1');
+                });
+            } else {
+                isPlayer1 = false;
+                console.log('Joined game as Player 2');
+            }
+            startListeningToMoves(gameCode);
+        }, { onlyOnce: true });
+    }
+
+    function setupDragAndDrop() {
+        const boxes = document.querySelectorAll('.box');
+        const stoonDiv = document.querySelector('.stoons');
+
+        // إضافة مستمعات للصور
+        document.querySelectorAll('img').forEach(img => {
+            img.setAttribute('draggable', 'true');
+            img.addEventListener('dragstart', handleDragStart);
+        });
+
+        // إضافة مستمعات للمربعات
+        boxes.forEach(box => {
+            box.addEventListener('dragover', e => e.preventDefault());
+            box.addEventListener('drop', handleDrop);
+        });
+
+        // إضافة مستمع لمنطقة تخزين القطع
+        stoonDiv.addEventListener('dragover', e => e.preventDefault());
+        stoonDiv.addEventListener('drop', handleDrop);
+    }
+
+    function handleDragStart(e) {
+        // التحقق من دور اللاعب
+        const isPlayer = isPlayer1 ? 'Player 1' : 'Player 2';
+        console.log(`Started dragging as ${isPlayer}`);
+
+        e.dataTransfer.setData('pieceId', e.target.id);
+        e.dataTransfer.setData('pieceClass', e.target.className);
+        e.dataTransfer.setData('fromPosition', e.target.parentElement.id || 'stoons');
+    }
+
+    function handleDrop(e) {
+        e.preventDefault();
+        if (!currentGameCode) return;
+
+        const pieceId = e.dataTransfer.getData('pieceId');
+        const pieceClass = e.dataTransfer.getData('pieceClass');
+        const fromPosition = e.dataTransfer.getData('fromPosition');
+        const toPosition = e.target.id;
+
+        // إرسال الحركة إلى قاعدة البيانات
+        sendMove(fromPosition, toPosition, pieceId, pieceClass);
+    }
+
+    function sendMove(fromPosition, toPosition, pieceId, pieceClass) {
+        const moveRef = ref(database, `games/${currentGameCode}/moves`);
+        push(moveRef, {
+            from: fromPosition,
+            to: toPosition,
+            pieceId,
+            pieceClass,
+            timestamp: Date.now(),
+            player: isPlayer1 ? 1 : 2
+        });
+    }
+
+    function startListeningToMoves(gameCode) {
+        const movesRef = ref(database, `games/${gameCode}/moves`);
+        onValue(movesRef, (snapshot) => {
+            const moves = snapshot.val();
+            if (moves) {
+                Object.values(moves).forEach(move => {
+                    applyMove(move);
+                });
+            }
+        });
+    }
+
+    function applyMove(move) {
+        const piece = document.getElementById(move.pieceId);
+        const toElement = document.querySelector(`#${move.to}`) || stoonDiv;
+
+        if (piece && toElement) {
+            toElement.appendChild(piece);
+            updateGameState();
+        }
+    }
+
+    function updateGameState() {
+        let player1Stones = document.querySelectorAll('.stoons .img1').length;
+        let player2Stones = document.querySelectorAll('.stoons .img2').length;
+
+        document.getElementById("player1stoon").innerHTML = player1Stones;
+        document.getElementById("player2stoon").innerHTML = player2Stones;
+
+        // تحديث النتيجة تلقائياً وتخزينها في localStorage
+        localStorage.setItem("player1Stones", player1Stones);
+        localStorage.setItem("player2Stones", player2Stones);
+    }
+</script>
+<script src="server.js"></script>
+</body>
+</html>
