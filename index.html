@@ -85,8 +85,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-        import { getDatabase, ref, set,onValue,push,child } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
-    
+        import { getDatabase, ref, set, onValue, push } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
         // Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyCUqhe5im-x-olF6CkavjZtABdxBaOVhmI",
@@ -105,7 +104,7 @@
         const database = getDatabase(app);
     
         // Function to set user data in the database
-       /* 
+        /* 
         document.getElementById("GoBtn").onclick = function setUserData() {
             var GameCode = document.getElementById("GameCode").value;
             console.log(GameCode);
@@ -122,142 +121,223 @@
             });
         }
 */
-        /*----test----*/
+// Log and store events to Firebase
+function logEvent(eventName, eventDetails) {
+    const eventLog = {
+        event: eventName,
+        details: eventDetails,
+        timestamp: new Date().toISOString()
+    };
+    
+    // Push to Firebase Realtime Database
+    const eventsRef = ref(database, 'events');
+    
+    push(eventsRef, eventLog)
+        .then(() => {
+            console.log(`Event '${eventName}' logged successfully.`);
+        })
+        .catch((error) => {
+            console.error(`Failed to log event '${eventName}' to Firebase:`, error);
+        });
+}
 
-    let currentGameCode = '';
-    let isPlayer1 = true; // لتحديد دور اللاعب
+// Log click events
+document.addEventListener('click', function (e) {
+    console.log('Click event detected:', e);  // Debugging log
+    logEvent('click', {
+        target: e.target.tagName,
+        x: e.clientX,
+        y: e.clientY
+    });
+});
 
-    // إضافة مستمعات الأحداث بعد تحميل المستند
-    document.addEventListener('DOMContentLoaded', () => {
-        const goBtn = document.getElementById('GoBtn');
-        const gameCodeInput = document.getElementById('GameCode');
+// Log scroll events
+window.addEventListener('scroll', function () {
+    console.log('Scroll event detected');  // Debugging log
+    logEvent('scroll', {
+        scrollPosition: window.scrollY
+    });
+});
 
-        // التعامل مع زر Go
-        goBtn.addEventListener('click', () => {
-            currentGameCode = gameCodeInput.value.trim();
-            if (currentGameCode) {
-                joinGame(currentGameCode);
-            }
+// Log form submission events
+document.addEventListener('submit', function (e) {
+    console.log('Form submit event detected:', e);  // Debugging log
+    logEvent('form_submit', {
+        formId: e.target.id
+    });
+});
+
+/*---------------------*/
+
+// استيراد إعدادات Firebase كما وضحنا سابقاً
+const database = getDatabase(app);
+
+// عقدة البيانات التي نرغب في مراقبتها
+const eventsRef = ref(database, 'events');
+
+// مراقبة جميع التغييرات التي تحدث على "events"
+onValue(eventsRef, (snapshot) => {
+    const data = snapshot.val();
+    console.log("تم تحديث البيانات: ", data);
+    // يمكنك هنا تحديث الواجهة بناءً على البيانات الجديدة
+});
+
+// إضافة حدث جديد (على مستوى العنصر)
+onChildAdded(eventsRef, (snapshot) => {
+    const newEvent = snapshot.val();
+    console.log("تمت إضافة حدث جديد: ", newEvent);
+    // التعامل مع الحدث الجديد، مثل إضافته إلى الواجهة
+});
+
+// تعديل حدث موجود
+onChildChanged(eventsRef, (snapshot) => {
+    const updatedEvent = snapshot.val();
+    console.log("تم تعديل الحدث: ", updatedEvent);
+    // تحديث البيانات في الواجهة أو التعامل معها
+});
+
+// حذف حدث
+onChildRemoved(eventsRef, (snapshot) => {
+    const removedEvent = snapshot.val();
+    console.log("تم حذف الحدث: ", removedEvent);
+    // إزالة العنصر من الواجهة أو تنفيذ أي منطق آخر
+});
+
+    </script>
+
+<!------------------------------بداية كود جديد---------------------------------------->
+<script>
+    /*
+    const boxes = document.querySelectorAll('.box');
+const images = document.querySelectorAll('img');
+
+const stoonsDivs = document.querySelectorAll('.stoons'); // Select the stoons divs
+*/
+let timeLeft = 60;
+function setTimeLeft(){
+    let msg = document.getElementById("countdown-message");
+    if(msg.innerHTML == "player1 playing"){
+        msg.innerHTML="player2 playing";
+        timeLeft = 60;
+        }else{
+        msg.innerHTML="player1 playing";
+        timeLeft = 60;
+    }
+}
+
+let player = document.querySelector('.stoon');
+
+if (player) {
+    let currentBox = player.parentElement;
+
+    // Adding drag and drop functionality
+    images.forEach(image => {
+        image.setAttribute('draggable', 'true'); // Make images draggable
+
+        image.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('text/plain', image.className); // Store the class name of the image being dragged
+            e.dataTransfer.setData('id', image.id); // Store the id of the image being dragged if needed
+        });
+    });
+    function re() {
+        location.reload();
+    }
+    
+    function reA() {
+        location.reload();
+        
+        localStorage.setItem("score1", 0);
+        localStorage.setItem("score2", 0);
+    }
+    // Handle drag over event on stoons divs
+    stoonsDivs.forEach(stoon => {
+        stoon.addEventListener('dragover', (e) => {
+            e.preventDefault(); // Prevent default to allow drop
         });
 
-        // إضافة مستمعات السحب والإفلات
-        setupDragAndDrop();
+        stoon.addEventListener('drop', (e) => {
+            e.preventDefault();
+            const className = e.dataTransfer.getData('text/plain'); // Get the class name of the dragged image
+            const imageId = e.dataTransfer.getData('id'); // Get the id of the dragged image if needed
+
+            // Find the image being dragged
+            const draggedImage = document.getElementById(imageId); // Use the id to find the image
+            if (draggedImage) {
+                // Append the dragged image to the stoons div
+                stoon.appendChild(draggedImage);
+                setTimeLeft();
+                let img1 = stoon.getElementsByClassName("img1");
+                let img2 = stoon.getElementsByClassName("img2");
+                if(img1.length>=22){
+                    localStorage.setItem('score1', Number(localStorage.getItem("score1"))+1);
+                    document.getElementById("score1").innerHTML = localStorage.getItem("score1");
+                    re();
+                }else if(img2.length>=22){
+                    localStorage.setItem('score2', Number(localStorage.getItem("score2"))+1);
+                    document.getElementById("score2").innerHTML = localStorage.getItem("score2");
+                    re();
+                }else{
+                    document.getElementById("player1stoon").innerHTML = img1.length;
+                    document.getElementById("player2stoon").innerHTML = img2.length;
+                }
+                
+            }
+        });
+    });
+    
+    document.getElementById("score1").innerHTML = localStorage.getItem("score1");
+    document.getElementById("score2").innerHTML = localStorage.getItem("score2");
+    // Adding click functionality to boxes to move images
+    boxes.forEach(box => {
+        box.addEventListener('click', () => {
+            let boxRect = box.getBoundingClientRect();
+            let currentRect = currentBox.getBoundingClientRect();
+
+            let deltaX = Math.abs(boxRect.x - currentRect.x);
+            let deltaY = Math.abs(boxRect.y - currentRect.y);
+
+            if ((deltaX < 90 && deltaY === 0) || (deltaY < 90 && deltaX === 0)) {
+                if (!box.firstChild) {
+                    currentBox = box;
+                    box.appendChild(player);
+                    setTimeLeft();
+                } else {
+                    console.log('لا يمكن تحريك الصورة إلى صندوق يحتوي على صورة بالفعل.');
+                }
+            }
+        });
     });
 
-    // الانضمام إلى اللعبة
-    function joinGame(gameCode) {
-        const gameRef = ref(database, `games/${gameCode}`);
-        
-        // التحقق مما إذا كانت اللعبة موجودة
-        onValue(gameRef, (snapshot) => {
-            if (!snapshot.exists()) {
-                // إنشاء لعبة جديدة
-                set(gameRef, {
-                    created: Date.now(),
-                    currentPlayer: 1,
-                    status: 'active'
-                }).then(() => {
-                    isPlayer1 = true;
-                    console.log('Created new game as Player 1');
-                });
-            } else {
-                isPlayer1 = false;
-                console.log('Joined game as Player 2');
-            }
-            startListeningToMoves(gameCode);
-        }, { onlyOnce: true });
-    }
-
-    function setupDragAndDrop() {
-        const boxes = document.querySelectorAll('.box');
-        const stoonDiv = document.querySelector('.stoons');
-
-        // إضافة مستمعات للصور
-        document.querySelectorAll('img').forEach(img => {
-            img.setAttribute('draggable', 'true');
-            img.addEventListener('dragstart', handleDragStart);
-        });
-
-        // إضافة مستمعات للمربعات
-        boxes.forEach(box => {
-            box.addEventListener('dragover', e => e.preventDefault());
-            box.addEventListener('drop', handleDrop);
-        });
-
-        // إضافة مستمع لمنطقة تخزين القطع
-        stoonDiv.addEventListener('dragover', e => e.preventDefault());
-        stoonDiv.addEventListener('drop', handleDrop);
-    }
-
-    function handleDragStart(e) {
-        // التحقق من دور اللاعب
-        const isPlayer = isPlayer1 ? 'Player 1' : 'Player 2';
-        console.log(`Started dragging as ${isPlayer}`);
-
-        e.dataTransfer.setData('pieceId', e.target.id);
-        e.dataTransfer.setData('pieceClass', e.target.className);
-        e.dataTransfer.setData('fromPosition', e.target.parentElement.id || 'stoons');
-    }
-
-    function handleDrop(e) {
-        e.preventDefault();
-        if (!currentGameCode) return;
-
-        const pieceId = e.dataTransfer.getData('pieceId');
-        const pieceClass = e.dataTransfer.getData('pieceClass');
-        const fromPosition = e.dataTransfer.getData('fromPosition');
-        const toPosition = e.target.id;
-
-        // إرسال الحركة إلى قاعدة البيانات
-        sendMove(fromPosition, toPosition, pieceId, pieceClass);
-    }
-
-    function sendMove(fromPosition, toPosition, pieceId, pieceClass) {
-        const moveRef = ref(database, `games/${currentGameCode}/moves`);
-        push(moveRef, {
-            from: fromPosition,
-            to: toPosition,
-            pieceId,
-            pieceClass,
-            timestamp: Date.now(),
-            player: isPlayer1 ? 1 : 2
-        });
-    }
-
-    function startListeningToMoves(gameCode) {
-        const movesRef = ref(database, `games/${gameCode}/moves`);
-        onValue(movesRef, (snapshot) => {
-            const moves = snapshot.val();
-            if (moves) {
-                Object.values(moves).forEach(move => {
-                    applyMove(move);
-                });
+    boxes.forEach(boxone => {
+        boxone.addEventListener('click', () => {
+            boxes.forEach(onceOfAll => {
+                onceOfAll.classList.remove('active');
+            });
+            images.forEach(img => {
+                img.classList.remove('stoon');
+            });
+            if (boxone.firstChild) {
+                boxone.classList.add("active");
+                boxone.firstChild.classList.add("stoon");
+                player = boxone.firstChild;
+                currentBox = boxone;
             }
         });
-    }
+    });
+} else {
+    console.error('No player image with class "stoon" found.');
+}
 
-    function applyMove(move) {
-        const piece = document.getElementById(move.pieceId);
-        const toElement = document.querySelector(`#${move.to}`) || stoonDiv;
+/*----------------------*/
 
-        if (piece && toElement) {
-            toElement.appendChild(piece);
-            updateGameState();
-        }
-    }
+let countdownElement = document.getElementById('countdown');
+let countdownTimer = setInterval(() => {
+    timeLeft--;
+    countdownElement.textContent = timeLeft;
 
-    function updateGameState() {
-        let player1Stones = document.querySelectorAll('.stoons .img1').length;
-        let player2Stones = document.querySelectorAll('.stoons .img2').length;
+    if (timeLeft <= 0) {setTimeLeft()}
+}, 1000);
 
-        document.getElementById("player1stoon").innerHTML = player1Stones;
-        document.getElementById("player2stoon").innerHTML = player2Stones;
-
-        // تحديث النتيجة تلقائياً وتخزينها في localStorage
-        localStorage.setItem("player1Stones", player1Stones);
-        localStorage.setItem("player2Stones", player2Stones);
-    }
 </script>
-<script src="server.js"></script>
 </body>
 </html>
