@@ -246,9 +246,9 @@
             from = box;
             stones.addEventListener("click",()=>{
                 handleMove(from.id, stones.id, true);
-                if(img1.length>=5){
+                if(img1.length>=22){
                     handlescore(img1.length,img2.length,"playerTwo");
-                }else if(img2.length>=5){
+                }else if(img2.length>=22){
                     handlescore(img1.length,img2.length,"playerOne");
                 }else{
                     handlescore(img1.length,img2.length,  null);
