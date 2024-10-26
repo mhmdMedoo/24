@@ -1,344 +1,227 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>24 GAME</title>
-    <link rel="shortcut icon" href="images/s1.png" type="image/x-icon">
+    <title>24 Game</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            direction: rtl;
+            color: #4e342e; /* Dark brown for text */
+            overflow: hidden;
+            direction: rtl; /* الاتجاه من اليمين إلى اليسار */
+
+        }
+    
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+    
+        .container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+    
+        header h1 {
+            font-size: 2.5rem;
+            color: #3e2723; /* Darker brown for the header */
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+        }
+    
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    
+        .game-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+    
+        button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            background-color: #1976d2; /* Blue color for buttons */
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+    
+        button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s;
+            z-index: 0;
+        }
+    
+        button:hover {
+            background-color: #1565c0; /* Darker blue on hover */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+    
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2rem;
+            }
+    
+            button {
+                font-size: 1rem;
+                padding: 0.8rem 1.5rem;
+            }
+        }
+        .disabled {
+    background-color: #b0bec5; /* لون رمادي لتصميم الزر المعطل */
+    color: #ffffff; /* لون النص */
+    cursor: not-allowed; /* تغيير شكل المؤشر */
+    opacity: 0.6; /* تقليل الشفافية */
+    pointer-events: none; /* منع التفاعل مع الزر */
+}
+.create-game {
+            display: none; /* إخفاء الصندوق في البداية */
+            margin-top: 2rem;
+            text-align: right;
+        }
+
+        .create-game input {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 1rem;
+        }
+
+    </style>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="small.css">
 </head>
 <body>
-    <h1 id="score"><span id="score1">0</span> - <span id="score2">0</span></h1>
-    <input type="text" name="" id="GameCode">
-    <input type="button" value="Go" id="GoBtn">
-    <div class="game-board" id="main">
-        <!-- المربعات الخاصة باللاعب الأول (24 مربعًا) -->
-        <div class="box player1"><img src="images/s1.png" id="image1" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image2" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image3" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image4" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image5" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image6" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image7" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image8" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image9" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image10" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image11" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image12" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image13" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image14" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image15" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image16" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image17" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image18" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image19" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image20" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image21" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image22" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image23" class="img1"></div>
-        <div class="box player1"><img src="images/s1.png" id="image24" class="img1"></div>
-
-        <!-- المربع الفارغ في المنتصف -->
-        <div class="box empty"></div>
-
-        <!-- المربعات الخاصة باللاعب الثاني (24 مربعًا) -->
-        <div class="box player2"><img src="images/s2.png" id="image25" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image26" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image27" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image28" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image29" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image30" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image31" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image32" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image33" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image34" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image35" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image36" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image37" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image38" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image39" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image40" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image41" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image42" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image43" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image44" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image45" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image46" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image47" class="img2"></div>
-        <div class="box player2"><img src="images/s2.png" id="image48" class="img2 stoon" draggable="true"></div>
+    <div class="container">
+        <header>
+            <h1>مرحبًا بك في لعبة 24game!</h1>
+        </header>
+        <main>
+            <div class="game-options" id="main-options">
+                <button onclick="startOnlineMultiplayer()">العب مع صديقك (أونلاين)</button>
+                <button onclick="startSinglePlayer()" class ="disabled">العب مع صديقك  (أوفلاين)</button>
+                <button onclick="startSinglePlayer()" class ="disabled">العب بمفردك مع الكمبيوتر</button>
+            </div>
+            <div class="create-game" id="create-game">
+                <h2>أنشئ لعبة أو انضم إلى لعبة</h2>
+                <input type="number" id="game-code" placeholder="أدخل رقم اللعبة">
+                <input type="text" id="name" placeholder="أدخل الأسم الذي تحب أن نناديك به">
+                <button id="join-game-btn">إرسال</button>
+            </div>
+        </main>
     </div>
-    <div class="stoons">
-        <h3>STONE STORE</h3>
-        <div id="numberOfStoons">
-            player1stone <p id="player1stoon">0</p>
-            player2stone <p id="player2stoon">0</p>
-        </div>
-    </div>
-    <div class="countdown-container">
-        <div id="countdown">0</div>
-        <div id="countdown-message">player1 playing</div>
-    </div>
-    <div class="restBtn" onclick="re();">rest Stone</div>
-    <div class="restBtnA" onclick="reA();">rest Game</div>
-    <script src="script.js"></script>
-
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
-        import { getDatabase, ref, set, onValue, push } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyCUqhe5im-x-olF6CkavjZtABdxBaOVhmI",
-            authDomain: "game-bc3dc.firebaseapp.com",
-            databaseURL: "https://game-bc3dc-default-rtdb.firebaseio.com",
-            projectId: "game-bc3dc",
-            storageBucket: "game-bc3dc.appspot.com",
-            messagingSenderId: "247861221695",
-            appId: "1:247861221695:web:8455dde387f2d2da9c1b8a",
-            measurementId: "G-DWZ4DGYXJD"
-        };
-    
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const database = getDatabase(app);
-    
-        // Function to set user data in the database
-        /* 
-        document.getElementById("GoBtn").onclick = function setUserData() {
-            var GameCode = document.getElementById("GameCode").value;
-            console.log(GameCode);
-
-            const Code = ref(database, GameCode + "/");
-            set(Code, {
-                name: "new Game " + GameCode
-            })
-            .then(() => {
-                console.log("User  data set successfully.");
-            })
-            .catch((error) => {
-                console.error("Error setting user data: ", error);
-            });
+<script>
+        /**
+         * Start online multiplayer game
+         * Hides the main options and shows the game creation form
+         */
+            function startOnlineMultiplayer() {
+            document.getElementById('main-options').style.display = 'none';
+            document.getElementById('create-game').style.display = 'block';
         }
-*/
-// Log and store events to Firebase
-function logEvent(eventName, eventDetails) {
-    const eventLog = {
-        event: eventName,
-        details: eventDetails,
-        timestamp: new Date().toISOString()
+</script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";          
+    import { getDatabase, ref, remove, push, onChildAdded, get, child } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCUqhe5im-x-olF6CkavjZtABdxBaOVhmI",
+      authDomain: "game-bc3dc.firebaseapp.com",
+      databaseURL: "https://game-bc3dc-default-rtdb.firebaseio.com",
+      projectId: "game-bc3dc",
+      storageBucket: "game-bc3dc.appspot.com",
+      messagingSenderId: "247861221695",
+      appId: "1:247861221695:web:8455dde387f2d2da9c1b8a",
+      measurementId: "G-DWZ4DGYXJD"
     };
     
-    // Push to Firebase Realtime Database
-    const eventsRef = ref(database, 'events');
-    
-    push(eventsRef, eventLog)
-        .then(() => {
-            console.log(`Event '${eventName}' logged successfully.`);
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app); // Initialize the database
+    const dbRef = ref(database);
+    function createGame(){
+
+        const gameNumber = document.getElementById("game-code").value;
+        const palyerName = document.getElementById("name").value;
+        // Function to check if a game exists
+        get(child(dbRef, 'Games/' + gameNumber)) // Use the defined gameNumber
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+                localStorage.setItem("player","2");
+                const gameRef = ref(database, 'Games/' + gameNumber); // Use the defined gameNumber
+                push(gameRef,{player2 : palyerName}); // Store move data under the specific game number
+                localStorage.setItem("GameCode" ,  gameNumber);
+
+                location.href = "onlineGame.html";
+            } else {
+                localStorage.setItem("player" , "1");
+                // Example of logging a move
+                const gameRef = ref(database, 'Games/' + gameNumber); // Use the defined gameNumber
+                push(gameRef,{player1 : palyerName}); // Store move data under the specific game number
+                console.log("Game does not exist");
+                localStorage.setItem("GameCode" ,  gameNumber);
+                location.href = "onlineGame.html";
+            }
         })
         .catch((error) => {
-            console.error(`Failed to log event '${eventName}' to Firebase:`, error);
+            console.error('Error occurred:', error);
         });
-}
-
-// Log click events
-document.addEventListener('click', function (e) {
-    console.log('Click event detected:', e);  // Debugging log
-    logEvent('click', {
-        target: e.target.tagName,
-        x: e.clientX,
-        y: e.clientY
-    });
-});
-
-// Log scroll events
-window.addEventListener('scroll', function () {
-    console.log('Scroll event detected');  // Debugging log
-    logEvent('scroll', {
-        scrollPosition: window.scrollY
-    });
-});
-
-// Log form submission events
-document.addEventListener('submit', function (e) {
-    console.log('Form submit event detected:', e);  // Debugging log
-    logEvent('form_submit', {
-        formId: e.target.id
-    });
-});
-
-/*---------------------*/
-
-// استيراد إعدادات Firebase كما وضحنا سابقاً
-const database = getDatabase(app);
-
-// عقدة البيانات التي نرغب في مراقبتها
-const eventsRef = ref(database, 'events');
-
-// مراقبة جميع التغييرات التي تحدث على "events"
-onValue(eventsRef, (snapshot) => {
-    const data = snapshot.val();
-    console.log("تم تحديث البيانات: ", data);
-    // يمكنك هنا تحديث الواجهة بناءً على البيانات الجديدة
-});
-
-// إضافة حدث جديد (على مستوى العنصر)
-onChildAdded(eventsRef, (snapshot) => {
-    const newEvent = snapshot.val();
-    console.log("تمت إضافة حدث جديد: ", newEvent);
-    // التعامل مع الحدث الجديد، مثل إضافته إلى الواجهة
-});
-
-// تعديل حدث موجود
-onChildChanged(eventsRef, (snapshot) => {
-    const updatedEvent = snapshot.val();
-    console.log("تم تعديل الحدث: ", updatedEvent);
-    // تحديث البيانات في الواجهة أو التعامل معها
-});
-
-// حذف حدث
-onChildRemoved(eventsRef, (snapshot) => {
-    const removedEvent = snapshot.val();
-    console.log("تم حذف الحدث: ", removedEvent);
-    // إزالة العنصر من الواجهة أو تنفيذ أي منطق آخر
-});
-
-    </script>
-
-<!------------------------------بداية كود جديد---------------------------------------->
-<script>
-    /*
-    const boxes = document.querySelectorAll('.box');
-const images = document.querySelectorAll('img');
-
-const stoonsDivs = document.querySelectorAll('.stoons'); // Select the stoons divs
-*/
-let timeLeft = 60;
-function setTimeLeft(){
-    let msg = document.getElementById("countdown-message");
-    if(msg.innerHTML == "player1 playing"){
-        msg.innerHTML="player2 playing";
-        timeLeft = 60;
-        }else{
-        msg.innerHTML="player1 playing";
-        timeLeft = 60;
     }
-}
-
-let player = document.querySelector('.stoon');
-
-if (player) {
-    let currentBox = player.parentElement;
-
-    // Adding drag and drop functionality
-    images.forEach(image => {
-        image.setAttribute('draggable', 'true'); // Make images draggable
-
-        image.addEventListener('dragstart', (e) => {
-            e.dataTransfer.setData('text/plain', image.className); // Store the class name of the image being dragged
-            e.dataTransfer.setData('id', image.id); // Store the id of the image being dragged if needed
-        });
-    });
-    function re() {
-        location.reload();
-    }
-    
-    function reA() {
-        location.reload();
-        
-        localStorage.setItem("score1", 0);
-        localStorage.setItem("score2", 0);
-    }
-    // Handle drag over event on stoons divs
-    stoonsDivs.forEach(stoon => {
-        stoon.addEventListener('dragover', (e) => {
-            e.preventDefault(); // Prevent default to allow drop
-        });
-
-        stoon.addEventListener('drop', (e) => {
-            e.preventDefault();
-            const className = e.dataTransfer.getData('text/plain'); // Get the class name of the dragged image
-            const imageId = e.dataTransfer.getData('id'); // Get the id of the dragged image if needed
-
-            // Find the image being dragged
-            const draggedImage = document.getElementById(imageId); // Use the id to find the image
-            if (draggedImage) {
-                // Append the dragged image to the stoons div
-                stoon.appendChild(draggedImage);
-                setTimeLeft();
-                let img1 = stoon.getElementsByClassName("img1");
-                let img2 = stoon.getElementsByClassName("img2");
-                if(img1.length>=22){
-                    localStorage.setItem('score1', Number(localStorage.getItem("score1"))+1);
-                    document.getElementById("score1").innerHTML = localStorage.getItem("score1");
-                    re();
-                }else if(img2.length>=22){
-                    localStorage.setItem('score2', Number(localStorage.getItem("score2"))+1);
-                    document.getElementById("score2").innerHTML = localStorage.getItem("score2");
-                    re();
-                }else{
-                    document.getElementById("player1stoon").innerHTML = img1.length;
-                    document.getElementById("player2stoon").innerHTML = img2.length;
-                }
-                
-            }
-        });
-    });
-    
-    document.getElementById("score1").innerHTML = localStorage.getItem("score1");
-    document.getElementById("score2").innerHTML = localStorage.getItem("score2");
-    // Adding click functionality to boxes to move images
-    boxes.forEach(box => {
-        box.addEventListener('click', () => {
-            let boxRect = box.getBoundingClientRect();
-            let currentRect = currentBox.getBoundingClientRect();
-
-            let deltaX = Math.abs(boxRect.x - currentRect.x);
-            let deltaY = Math.abs(boxRect.y - currentRect.y);
-
-            if ((deltaX < 90 && deltaY === 0) || (deltaY < 90 && deltaX === 0)) {
-                if (!box.firstChild) {
-                    currentBox = box;
-                    box.appendChild(player);
-                    setTimeLeft();
-                } else {
-                    console.log('لا يمكن تحريك الصورة إلى صندوق يحتوي على صورة بالفعل.');
-                }
-            }
-        });
-    });
-
-    boxes.forEach(boxone => {
-        boxone.addEventListener('click', () => {
-            boxes.forEach(onceOfAll => {
-                onceOfAll.classList.remove('active');
-            });
-            images.forEach(img => {
-                img.classList.remove('stoon');
-            });
-            if (boxone.firstChild) {
-                boxone.classList.add("active");
-                boxone.firstChild.classList.add("stoon");
-                player = boxone.firstChild;
-                currentBox = boxone;
-            }
-        });
-    });
-} else {
-    console.error('No player image with class "stoon" found.');
-}
-
-/*----------------------*/
-
-let countdownElement = document.getElementById('countdown');
-let countdownTimer = setInterval(() => {
-    timeLeft--;
-    countdownElement.textContent = timeLeft;
-
-    if (timeLeft <= 0) {setTimeLeft()}
-}, 1000);
-
+    document.getElementById("join-game-btn").addEventListener("click" , ()=>{
+        createGame();
+    })
 </script>
 </body>
 </html>

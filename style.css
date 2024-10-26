@@ -20,49 +20,7 @@ body {
     position: absolute;
     top: 50px;
 }
-#GameCode {
-    font-size: 24px; /* Ensure font size is set correctly */
-    padding: 10px 20px; /* Padding for the input */
-    border: 2px solid #3A6EA5; /* Border color */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    transition: border-color 0.3s, box-shadow 0.3s; /* Transition effects */
-    outline: none; /* Remove default outline */
-    width: 300px; /* Set a width */
-    font-family: 'Roboto', sans-serif;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-}
 
-#GameCode:focus {
-    border-color: #FF6F40; /* Change border color on focus */
-    box-shadow: 0 0 10px rgba(255, 111, 64, 0.5); /* Glow effect on focus */
-}
-
-#GoBtn {
-    font-size: 25px; /* Font size */
-    padding: 15px 30px; /* Padding for the button */
-    background-color: #FF6F40; /* Button color */
-    color: #fff; /* Text color */
-    border: none; /* Remove default border */
-    border-radius: 10px; /* Rounded corners */
-    cursor: pointer; /* Pointer on hover */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
-    position: absolute;
-    top: 12px;
-    left: 226px;
-}
-
-#GoBtn:hover {
-    background-color: #FFC107; /* Change background on hover */
-    transform: scale(1.05); /* Slightly enlarge on hover */
-}
-
-#GoBtn:active {
-    transform: scale(0.95); /* Shrink on click */
-}
 .game-board {
     display: grid;
     grid-template-columns: repeat(7, 80px);
@@ -73,13 +31,7 @@ body {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
     padding: 10px; 
     background-color: rgba(255, 255, 255, 0.9); 
-}
-
-.game-board {
-    display: grid;
-    grid-template-columns: repeat(7, 80px);
-    grid-template-rows: repeat(7, 80px);
-    gap: 5px;
+    z-index: 9;
 }
 
 .box {
@@ -126,6 +78,42 @@ body {
     background-color: #ffffff;
     border: 2px dashed #333;
     color: #333; 
+}
+#winner {
+    position: absolute;
+    z-index: 0;
+    left: 50px;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column; /* Aligns text vertically */
+    justify-content: center; /* Centers content vertically */
+    font-size: 60px; /* Larger font size for emphasis */
+    color: #FFD700; /* Gold color for a winning effect */
+    text-shadow: 
+        3px 3px 5px rgba(0, 0, 0, 0.8), /* Dark shadow for depth */
+        0 0 25px rgba(255, 215, 0, 0.7), /* Glowing gold effect */
+        0 0 5px rgba(255, 215, 0, 0.9); /* Additional glow */
+    letter-spacing: 3px; /* Adds spacing between letters for a more dramatic effect */
+    font-weight: bold; /* Makes the text bold */
+    animation: pulse 1.5s infinite; /* Pulsing animation for excitement */
+    transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+
+/* Keyframes for pulsing animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .stoons {

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24 GAME</title>
+    <link rel="shortcut icon" href="images/s1.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="small.css">
+
+</head>
+<body>
+    <h1 id="score"></h1>
+    <div class="game-board" id="main">
+        <!-- المربعات الخاصة باللاعب الأول (24 مربعًا) -->
+        <div class="box player1" id="box1"><img src="images/s1.png" id="image1" class="img1"></div>
+        <div class="box player1" id="box2"><img src="images/s1.png" id="image2" class="img1"></div>
+        <div class="box player1" id="box3"><img src="images/s1.png" id="image3" class="img1"></div>
+        <div class="box player1" id="box4"><img src="images/s1.png" id="image4" class="img1"></div>
+        <div class="box player1" id="box5"><img src="images/s1.png" id="image5" class="img1"></div>
+        <div class="box player1" id="box6"><img src="images/s1.png" id="image6" class="img1"></div>
+        <div class="box player1" id="box7"><img src="images/s1.png" id="image7" class="img1"></div>
+        <div class="box player1" id="box8"><img src="images/s1.png" id="image8" class="img1"></div>
+        <div class="box player1" id="box9"><img src="images/s1.png" id="image9" class="img1"></div>
+        <div class="box player1" id="box10"><img src="images/s1.png" id="image10" class="img1"></div>
+        <div class="box player1" id="box11"><img src="images/s1.png" id="image11" class="img1"></div>
+        <div class="box player1" id="box12"><img src="images/s1.png" id="image12" class="img1"></div>
+        <div class="box player1" id="box13"><img src="images/s1.png" id="image13" class="img1"></div>
+        <div class="box player1" id="box14"><img src="images/s1.png" id="image14" class="img1"></div>
+        <div class="box player1" id="box15"><img src="images/s1.png" id="image15" class="img1"></div>
+        <div class="box player1" id="box16"><img src="images/s1.png" id="image16" class="img1"></div>
+        <div class="box player1" id="box17"><img src="images/s1.png" id="image17" class="img1"></div>
+        <div class="box player1" id="box18"><img src="images/s1.png" id="image18" class="img1"></div>
+        <div class="box player1" id="box19"><img src="images/s1.png" id="image19" class="img1"></div>
+        <div class="box player1" id="box20"><img src="images/s1.png" id="image20" class="img1"></div>
+        <div class="box player1" id="box21"><img src="images/s1.png" id="image21" class="img1"></div>
+        <div class="box player1" id="box22"><img src="images/s1.png" id="image22" class="img1"></div>
+        <div class="box player1" id="box23"><img src="images/s1.png" id="image23" class="img1"></div>
+        <div class="box player1" id="box24"><img src="images/s1.png" id="image24" class="img1"></div>
+
+        <!-- المربع الفارغ في المنتصف -->
+        <div class="box empty"  id="box25"></div>
+
+        <!-- المربعات الخاصة باللاعب الثاني (24 مربعًا) -->
+        <div class="box player2" id="box26"><img src="images/s2.png" id="image26" class="img2"></div>
+        <div class="box player2" id="box27"><img src="images/s2.png" id="image25" class="img2"></div>
+        <div class="box player2" id="box28"><img src="images/s2.png" id="image27" class="img2"></div>
+        <div class="box player2" id="box29"><img src="images/s2.png" id="image28" class="img2"></div>
+        <div class="box player2" id="box30"><img src="images/s2.png" id="image29" class="img2"></div>
+        <div class="box player2" id="box31"><img src="images/s2.png" id="image30" class="img2"></div>
+        <div class="box player2" id="box32"><img src="images/s2.png" id="image31" class="img2"></div>
+        <div class="box player2" id="box33"><img src="images/s2.png" id="image32" class="img2"></div>
+        <div class="box player2" id="box34"><img src="images/s2.png" id="image33" class="img2"></div>
+        <div class="box player2" id="box35"><img src="images/s2.png" id="image34" class="img2"></div>
+        <div class="box player2" id="box36"><img src="images/s2.png" id="image35" class="img2"></div>
+        <div class="box player2" id="box37"><img src="images/s2.png" id="image36" class="img2"></div>
+        <div class="box player2" id="box38"><img src="images/s2.png" id="image37" class="img2"></div>
+        <div class="box player2" id="box39"><img src="images/s2.png" id="image38" class="img2"></div>
+        <div class="box player2" id="box40"><img src="images/s2.png" id="image39" class="img2"></div>
+        <div class="box player2" id="box41"><img src="images/s2.png" id="image40" class="img2"></div>
+        <div class="box player2" id="box42"><img src="images/s2.png" id="image41" class="img2"></div>
+        <div class="box player2" id="box43"><img src="images/s2.png" id="image42" class="img2"></div>
+        <div class="box player2" id="box44"><img src="images/s2.png" id="image43" class="img2"></div>
+        <div class="box player2" id="box45"><img src="images/s2.png" id="image44" class="img2"></div>
+        <div class="box player2" id="box46"><img src="images/s2.png" id="image45" class="img2"></div>
+        <div class="box player2" id="box47"><img src="images/s2.png" id="image46" class="img2"></div>
+        <div class="box player2" id="box48"><img src="images/s2.png" id="image47" class="img2"></div>
+        <div class="box player2" id="box49"><img src="images/s2.png" id="image48" class="img2 stoon" draggable="true"></div>
+    </div>
+    <div id="winner">player1 win</div>
+    <div class="stoons" id="stones">
+        <h3>STONE STORE</h3>
+        <div id="numberOfStoons">
+            player1 <p id="player1stoon">0</p>
+            player2 <p id="player2stoon">0</p>
+        </div>
+    </div>
+    <!--
+    <div class="countdown-container">
+        <div id="countdown">0</div>
+        <div id="countdown-message">player1 playing</div>
+    </div>
+    -->
+    <div class="restBtn" id="startAgain">Anthor</div>
+    <div id="restBtnA" class="restBtnA">Re Game</div>
+    <!--<script src="script.js"></script>-->
+    <!--
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+          
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+              apiKey: "AIzaSyCUqhe5im-x-olF6CkavjZtABdxBaOVhmI",
+              authDomain: "game-bc3dc.firebaseapp.com",
+              databaseURL: "https://game-bc3dc-default-rtdb.firebaseio.com",
+              projectId: "game-bc3dc",
+              storageBucket: "game-bc3dc.appspot.com",
+              messagingSenderId: "247861221695",
+              appId: "1:247861221695:web:8455dde387f2d2da9c1b8a",
+              measurementId: "G-DWZ4DGYXJD"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+            import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+            // إعداد Firebase
+            const database = getDatabase(app);
+            
+            // دالة لتسجيل الحركة
+            function logMove(moveData) {
+                const movesRef = ref(database, 'moves');
+                push(movesRef, moveData);
+            }
+    
+            // دالة للتعامل مع تحركات اللاعب
+            function handleMove(player, targetBoxId, isStoon) {
+                const moveData = {
+                    player: player,
+                    targetBoxId: targetBoxId,
+                    isStoon: isStoon,
+                    timestamp: new Date().toISOString()
+                };
+                logMove(moveData);
+            }
+    
+            // مراقبة تحركات اللاعبين
+            const movesRef = ref(database, 'moves');
+            onChildAdded(movesRef, (snapshot) => {
+                const move = snapshot.val();
+                // تنفيذ الحركة بناءً على البيانات المستلمة
+                const targetBox = document.getElementById(move.targetBoxId);
+                const playerImage = move.player === 'player1' ? document.querySelector('.stoon.img1') : document.querySelector('.stoon.img2');
+    
+                if (targetBox) {
+                    if (move.isStoon) {
+                        targetBox.appendChild(playerImage.cloneNode(true)); // نقل الصورة إلى صندوق stoons
+                    } else {
+                        targetBox.appendChild(playerImage); // نقل الصورة إلى صندوق آخر
+                    }
+                }
+            });
+    
+            // إضافة أحداث للنقل عند الضغط
+            boxes.forEach(box => {
+                box.addEventListener('click', () => {
+                    let currentBox = box;
+                    // تحقق مما إذا كان هناك صورة
+                    if (currentBox.firstChild) {
+                        const isStoon = currentBox.classList.contains('stoons');
+                        handleMove('player1', currentBox.id, isStoon); // تسجيل الحركة
+                    }
+                });
+            });
+    
+            // إضافة أحداث للسحب والإفلات
+            stoonsDivs.forEach(stoon => {
+                stoon.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    const className = e.dataTransfer.getData('text/plain'); // الحصول على اسم الصنف للصورة المسحوبة
+                    const imageId = e.dataTransfer.getData('id'); // الحصول على معرف الصورة
+                    const draggedImage = document.getElementById(imageId);
+                    if (draggedImage) {
+                        stoon.appendChild(draggedImage);
+                        handleMove('player1', stoon.id, true); // تسجيل الحركة
+                    }
+                });
+            });
+        </script>
+    -->
+    <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";          
+            const firebaseConfig = {
+              apiKey: "AIzaSyCUqhe5im-x-olF6CkavjZtABdxBaOVhmI",
+              authDomain: "game-bc3dc.firebaseapp.com",
+              databaseURL: "https://game-bc3dc-default-rtdb.firebaseio.com",
+              projectId: "game-bc3dc",
+              storageBucket: "game-bc3dc.appspot.com",
+              messagingSenderId: "247861221695",
+              appId: "1:247861221695:web:8455dde387f2d2da9c1b8a",
+              measurementId: "G-DWZ4DGYXJD"
+            };
+          
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+            import { getDatabase, ref,remove , push, onChildAdded } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+            // إعداد Firebase
+            const database = getDatabase(app);
+            let GAMECODE = localStorage.getItem("GameCode");
+             // دالة لتسجيل الحركة
+            function logMove(moveData) {
+                const movesRef = ref(database, 'Games/'+GAMECODE+'/moves');
+                push(movesRef, moveData);
+            }
+    
+            // دالة للتعامل مع تحركات اللاعب
+            function handleMove(fromBoxId, targetBoxId, isStoon) {
+                const moveData = {
+                    fromBox: fromBoxId,
+                    targetBoxId: targetBoxId,
+                    isStoon: isStoon,
+                };
+                logMove(moveData);
+            }
+            const boxes = document.querySelectorAll('.box');
+            const stones = document.getElementById("stones");
+            let from = null; // Declare the 'from' variable in a broader scope
+            let img1 = stones.getElementsByClassName("img1");
+            let img2 = stones.getElementsByClassName("img2");
+            let player1stoon = document.getElementById("player1stoon");
+            let player2stoon = document.getElementById("player2stoon");
+            function updateScore(){
+                player1stoon.innerHTML = img1.length;
+                player2stoon.innerHTML = img2.length;
+            }
+            //تسجيل قيمة كل الاحجار لكل لاعب في المخزن
+            function logscore(scoreData) {
+                const scoreRef = ref(database, 'Games/'+GAMECODE+'/Score');
+                push(scoreRef, scoreData);
+            }
+    
+            // دالة للتعامل مع تحركات اللاعب
+            function handlescore(scoreOne, scoretwo, Winer) {
+                const scoreData = {
+                    scoreOne: scoreOne,
+                    scoretwo:  scoretwo,
+                    Winer: Winer
+                };
+                logscore(scoreData);
+            }
+            let notfication = document.getElementById("score");
+    //دالة تسجيل الحركة في قاعدة البيانات
+    boxes.forEach(box => {
+      box.addEventListener('click', (e) => {
+            if (box.firstChild) {
+            from = box;
+            stones.addEventListener("click",()=>{
+                handleMove(from.id, stones.id, true);
+                if(img1.length>=5){
+                    handlescore(img1.length,img2.length,"playerTwo");
+                }else if(img2.length>=5){
+                    handlescore(img1.length,img2.length,"playerOne");
+                }else{
+                    handlescore(img1.length,img2.length,  null);
+                }
+            })
+            } else {
+            if (from) { // Check if 'from' is set
+            let boxRect = box.getBoundingClientRect();
+            let currentRect = from.getBoundingClientRect();
+            let deltaX = Math.abs(boxRect.x - currentRect.x);
+            let deltaY = Math.abs(boxRect.y - currentRect.y);
+
+            if ((deltaX < 90 && deltaY === 0) || (deltaY < 90 && deltaX === 0)) {
+                    handleMove(from.id,box.id,false);
+            }
+            } else {
+                console.log("No source box selected."); // Handle the case where 'from' is not set
+            }
+            }
+        
+      });
+    });
+
+
+                  // مراقبة تحركات اللاعبين
+    const movesRef = ref(database, 'Games/'+GAMECODE+'/moves');
+    onChildAdded(movesRef, (snapshot) => {
+    const move = snapshot.val();
+    let targetBox = document.getElementById(move.targetBoxId);
+    let fromBox = document.getElementById(move.fromBox);
+
+    // التحقق من وجود العناصر
+    if (!targetBox) {
+        console.error("Target box not found:", move.targetBoxId);
+        return; // الخروج إذا لم يكن العنصر موجودًا
+    }
+    if (!fromBox) {
+        console.error("From box not found:", move.fromBox);
+        return; // الخروج إذا لم يكن العنصر موجودًا
+    }
+
+    // التحقق من وجود عنصر child في fromBox
+    if (fromBox.firstChild) {
+        // التأكد من أن firstChild هو عنصر صالح
+        if (fromBox.firstChild.nodeType === Node.ELEMENT_NODE) {
+            targetBox.appendChild(fromBox.firstChild);
+            fromBox.removeChild(fromBox.firstChild);
+        } else {
+            console.warn("First child is not a valid node:", fromBox.firstChild);
+        }
+    } else {
+        console.warn("No child to remove from fromBox:", fromBox.id);
+    }
+});
+
+      const scoreRef = ref(database, 'Games/'+GAMECODE+'/Score');
+      onChildAdded(scoreRef, (snapshot) => {
+        const score = snapshot.val();
+        if(score.Winer != null){
+            if(score.Winer == "playerOne"){
+            document.getElementById("main").style.visibility = "hidden";
+            }else{
+                document.getElementById("main").style.visibility = "hidden";
+            }
+        }else{
+            player2stoon.innerHTML = score.scoretwo;
+            player1stoon.innerHTML = score.scoreOne;
+        }
+      });
+
+                        // مراقبة تحركات اللاعبين
+    const playerRef = ref(database, 'Games/'+GAMECODE);
+      onChildAdded(playerRef, (snapshot) => {
+          const player = snapshot.val();
+          // Get the first property key
+        const firstKey = Object.keys(player)[0];
+        // Get the value of the first property
+        if(firstKey == "player1"){
+            localStorage.setItem("playerOne",player[firstKey]);
+        }else{
+            localStorage.setItem("playerTwo",player[firstKey].toString());
+        }
+        
+      });
+
+    document.getElementById("restBtnA").addEventListener("click",()=>{
+      const movesRef = ref(database, 'Games/'+GAMECODE+'/moves');
+      const scoreRef = ref(database, 'Games/'+GAMECODE+'/Score');
+        remove(movesRef);
+        remove(scoreRef);
+        location.reload();
+    })
+    document.getElementById("startAgain").addEventListener("click" , ()=>{
+        const GamesRef = ref(database, 'Games/');
+        remove(GamesRef);
+        location.href = "index.html";
+    })
+
+            /*-----------------------------------moveing function -----------------------*/
+const images = document.querySelectorAll('img');
+const stoonsDivs = document.querySelectorAll('.stoons'); // Select the stoons divs
+
+let player = document.querySelector('.stoon');
+
+if (player) {
+    let currentBox = player.parentElement;
+    boxes.forEach(boxone => {
+        boxone.addEventListener('click', () => {
+            boxes.forEach(onceOfAll => {
+                onceOfAll.classList.remove('active');
+            });
+            images.forEach(img => {
+                img.classList.remove('stoon');
+            });
+            if (boxone.firstChild) {
+                boxone.classList.add("active");
+                boxone.firstChild.classList.add("stoon");
+                player = boxone.firstChild;
+                currentBox = boxone;
+            }
+        });
+    });
+} else {
+    console.error('No player image with class "stoon" found.');
+}
+    </script>
+    <script>
+        function notfication(text){
+    const notfication = document.getElementById("score");
+    notfication.style.display  = "block";
+    notfication.innerHTML = text;
+    setInterval(function(){
+            notfication.style.display = "none";
+            notfication.innerHTML = "0";
+    },5000)
+}
+        if(localStorage.getItem("player") == "1"){
+            notfication("لقد قمت بإنشاء لعبة جديدة رقم  " + localStorage.getItem("GameCode") + " .");
+        }else{
+            notfication("لقد إنضممت للتو للعبة رقم " + localStorage.getItem("GameCode") + " .");
+        }
+    </script>
+</body>
+</html>
