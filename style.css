@@ -100,6 +100,7 @@ body {
     font-weight: bold; /* Makes the text bold */
     animation: pulse 1.5s infinite; /* Pulsing animation for excitement */
     transition: transform 0.3s ease; /* Smooth transition for hover effect */
+    display: none;
 }
 
 
