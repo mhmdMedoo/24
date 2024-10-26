@@ -26,6 +26,9 @@
         left: 50%;
         transform: translate(-50%, -28px);
     }
+    .stoons img{
+        width: 30px;
+    }
     .restBtn, .restBtnA {
         padding: 5px 10px;
         font-size: 15px;
