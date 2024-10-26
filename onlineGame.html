@@ -346,7 +346,7 @@
         location.reload();
     })
     document.getElementById("startAgain").addEventListener("click" , ()=>{
-        const GamesRef = ref(database, 'Games/');
+        const GamesRef = ref(database, 'Games/'+GAMECODE);
         remove(GamesRef);
         location.href = "index.html";
     })
