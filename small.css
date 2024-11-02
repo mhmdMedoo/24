@@ -27,21 +27,10 @@
         transform: translate(-50%, -28px);
     }
     .stoons img{
-        width: 30px;
+        width: 30px !important;
     }
     .restBtn, .restBtnA {
         padding: 5px 10px;
         font-size: 15px;
-        position: absolute;
-        top: 15px;
-        bottom: auto;
-    }
-    .restBtn{
-        right: 15px;
-        left: auto;
-    }
-    .restBtnA{
-        left: 15px;
-        right: auto;
     }
   }

@@ -1,373 +1,543 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>24 GAME</title>
-    <link rel="shortcut icon" href="images/s1.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="small.css">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>24 GAME</title>
+  <link rel="shortcut icon" href="images/s1.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="small.css" />
+ </head>
+ <body>
+  <h1 id="score"></h1>
+  <div class="game-board" id="main">
+   <!-- المربعات الخاصة باللاعب الأول (24 مربعًا) -->
+   <div class="box player1" id="box1"><img src="images/s1.png" id="image1" class="img1" /></div>
+   <div class="box player1" id="box2"><img src="images/s1.png" id="image2" class="img1" /></div>
+   <div class="box player1" id="box3"><img src="images/s1.png" id="image3" class="img1" /></div>
+   <div class="box player1" id="box4"><img src="images/s1.png" id="image4" class="img1" /></div>
+   <div class="box player1" id="box5"><img src="images/s1.png" id="image5" class="img1" /></div>
+   <div class="box player1" id="box6"><img src="images/s1.png" id="image6" class="img1" /></div>
+   <div class="box player1" id="box7"><img src="images/s1.png" id="image7" class="img1" /></div>
+   <div class="box player1" id="box8"><img src="images/s1.png" id="image8" class="img1" /></div>
+   <div class="box player1" id="box9"><img src="images/s1.png" id="image9" class="img1" /></div>
+   <div class="box player1" id="box10"><img src="images/s1.png" id="image10" class="img1" /></div>
+   <div class="box player1" id="box11"><img src="images/s1.png" id="image11" class="img1" /></div>
+   <div class="box player1" id="box12"><img src="images/s1.png" id="image12" class="img1" /></div>
+   <div class="box player1" id="box13"><img src="images/s1.png" id="image13" class="img1" /></div>
+   <div class="box player1" id="box14"><img src="images/s1.png" id="image14" class="img1" /></div>
+   <div class="box player1" id="box15"><img src="images/s1.png" id="image15" class="img1" /></div>
+   <div class="box player1" id="box16"><img src="images/s1.png" id="image16" class="img1" /></div>
+   <div class="box player1" id="box17"><img src="images/s1.png" id="image17" class="img1" /></div>
+   <div class="box player1" id="box18"><img src="images/s1.png" id="image18" class="img1" /></div>
+   <div class="box player1" id="box19"><img src="images/s1.png" id="image19" class="img1" /></div>
+   <div class="box player1" id="box20"><img src="images/s1.png" id="image20" class="img1" /></div>
+   <div class="box player1" id="box21"><img src="images/s1.png" id="image21" class="img1" /></div>
+   <div class="box player1" id="box22"><img src="images/s1.png" id="image22" class="img1" /></div>
+   <div class="box player1" id="box23"><img src="images/s1.png" id="image23" class="img1" /></div>
+   <div class="box player1" id="box24"><img src="images/s1.png" id="image24" class="img1" /></div>
 
-</head>
-<body>
-    <h1 id="score"></h1>
-    <div class="game-board" id="main">
-        <!-- المربعات الخاصة باللاعب الأول (24 مربعًا) -->
-        <div class="box player1" id="box1"><img src="images/s1.png" id="image1" class="img1"></div>
-        <div class="box player1" id="box2"><img src="images/s1.png" id="image2" class="img1"></div>
-        <div class="box player1" id="box3"><img src="images/s1.png" id="image3" class="img1"></div>
-        <div class="box player1" id="box4"><img src="images/s1.png" id="image4" class="img1"></div>
-        <div class="box player1" id="box5"><img src="images/s1.png" id="image5" class="img1"></div>
-        <div class="box player1" id="box6"><img src="images/s1.png" id="image6" class="img1"></div>
-        <div class="box player1" id="box7"><img src="images/s1.png" id="image7" class="img1"></div>
-        <div class="box player1" id="box8"><img src="images/s1.png" id="image8" class="img1"></div>
-        <div class="box player1" id="box9"><img src="images/s1.png" id="image9" class="img1"></div>
-        <div class="box player1" id="box10"><img src="images/s1.png" id="image10" class="img1"></div>
-        <div class="box player1" id="box11"><img src="images/s1.png" id="image11" class="img1"></div>
-        <div class="box player1" id="box12"><img src="images/s1.png" id="image12" class="img1"></div>
-        <div class="box player1" id="box13"><img src="images/s1.png" id="image13" class="img1"></div>
-        <div class="box player1" id="box14"><img src="images/s1.png" id="image14" class="img1"></div>
-        <div class="box player1" id="box15"><img src="images/s1.png" id="image15" class="img1"></div>
-        <div class="box player1" id="box16"><img src="images/s1.png" id="image16" class="img1"></div>
-        <div class="box player1" id="box17"><img src="images/s1.png" id="image17" class="img1"></div>
-        <div class="box player1" id="box18"><img src="images/s1.png" id="image18" class="img1"></div>
-        <div class="box player1" id="box19"><img src="images/s1.png" id="image19" class="img1"></div>
-        <div class="box player1" id="box20"><img src="images/s1.png" id="image20" class="img1"></div>
-        <div class="box player1" id="box21"><img src="images/s1.png" id="image21" class="img1"></div>
-        <div class="box player1" id="box22"><img src="images/s1.png" id="image22" class="img1"></div>
-        <div class="box player1" id="box23"><img src="images/s1.png" id="image23" class="img1"></div>
-        <div class="box player1" id="box24"><img src="images/s1.png" id="image24" class="img1"></div>
+   <!-- المربع الفارغ في المنتصف -->
+   <div class="box empty" id="box25"></div>
 
-        <!-- المربع الفارغ في المنتصف -->
-        <div class="box empty"  id="box25"></div>
-
-        <!-- المربعات الخاصة باللاعب الثاني (24 مربعًا) -->
-        <div class="box player2" id="box26"><img src="images/s2.png" id="image26" class="img2"></div>
-        <div class="box player2" id="box27"><img src="images/s2.png" id="image25" class="img2"></div>
-        <div class="box player2" id="box28"><img src="images/s2.png" id="image27" class="img2"></div>
-        <div class="box player2" id="box29"><img src="images/s2.png" id="image28" class="img2"></div>
-        <div class="box player2" id="box30"><img src="images/s2.png" id="image29" class="img2"></div>
-        <div class="box player2" id="box31"><img src="images/s2.png" id="image30" class="img2"></div>
-        <div class="box player2" id="box32"><img src="images/s2.png" id="image31" class="img2"></div>
-        <div class="box player2" id="box33"><img src="images/s2.png" id="image32" class="img2"></div>
-        <div class="box player2" id="box34"><img src="images/s2.png" id="image33" class="img2"></div>
-        <div class="box player2" id="box35"><img src="images/s2.png" id="image34" class="img2"></div>
-        <div class="box player2" id="box36"><img src="images/s2.png" id="image35" class="img2"></div>
-        <div class="box player2" id="box37"><img src="images/s2.png" id="image36" class="img2"></div>
-        <div class="box player2" id="box38"><img src="images/s2.png" id="image37" class="img2"></div>
-        <div class="box player2" id="box39"><img src="images/s2.png" id="image38" class="img2"></div>
-        <div class="box player2" id="box40"><img src="images/s2.png" id="image39" class="img2"></div>
-        <div class="box player2" id="box41"><img src="images/s2.png" id="image40" class="img2"></div>
-        <div class="box player2" id="box42"><img src="images/s2.png" id="image41" class="img2"></div>
-        <div class="box player2" id="box43"><img src="images/s2.png" id="image42" class="img2"></div>
-        <div class="box player2" id="box44"><img src="images/s2.png" id="image43" class="img2"></div>
-        <div class="box player2" id="box45"><img src="images/s2.png" id="image44" class="img2"></div>
-        <div class="box player2" id="box46"><img src="images/s2.png" id="image45" class="img2"></div>
-        <div class="box player2" id="box47"><img src="images/s2.png" id="image46" class="img2"></div>
-        <div class="box player2" id="box48"><img src="images/s2.png" id="image47" class="img2"></div>
-        <div class="box player2" id="box49"><img src="images/s2.png" id="image48" class="img2 stoon" draggable="true"></div>
-    </div>
-    <div id="winner">player1 win</div>
-    <div class="stoons" id="stones">
-        <h3>STONE STORE</h3>
-        <div id="numberOfStoons">
-            player1 <p id="player1stoon">0</p>
-            player2 <p id="player2stoon">0</p>
-        </div>
-    </div>
-    <!--
+   <!-- المربعات الخاصة باللاعب الثاني (24 مربعًا) -->
+   <div class="box player2" id="box26"><img src="images/s2.png" id="image26" class="img2" /></div>
+   <div class="box player2" id="box27"><img src="images/s2.png" id="image25" class="img2" /></div>
+   <div class="box player2" id="box28"><img src="images/s2.png" id="image27" class="img2" /></div>
+   <div class="box player2" id="box29"><img src="images/s2.png" id="image28" class="img2" /></div>
+   <div class="box player2" id="box30"><img src="images/s2.png" id="image29" class="img2" /></div>
+   <div class="box player2" id="box31"><img src="images/s2.png" id="image30" class="img2" /></div>
+   <div class="box player2" id="box32"><img src="images/s2.png" id="image31" class="img2" /></div>
+   <div class="box player2" id="box33"><img src="images/s2.png" id="image32" class="img2" /></div>
+   <div class="box player2" id="box34"><img src="images/s2.png" id="image33" class="img2" /></div>
+   <div class="box player2" id="box35"><img src="images/s2.png" id="image34" class="img2" /></div>
+   <div class="box player2" id="box36"><img src="images/s2.png" id="image35" class="img2" /></div>
+   <div class="box player2" id="box37"><img src="images/s2.png" id="image36" class="img2" /></div>
+   <div class="box player2" id="box38"><img src="images/s2.png" id="image37" class="img2" /></div>
+   <div class="box player2" id="box39"><img src="images/s2.png" id="image38" class="img2" /></div>
+   <div class="box player2" id="box40"><img src="images/s2.png" id="image39" class="img2" /></div>
+   <div class="box player2" id="box41"><img src="images/s2.png" id="image40" class="img2" /></div>
+   <div class="box player2" id="box42"><img src="images/s2.png" id="image41" class="img2" /></div>
+   <div class="box player2" id="box43"><img src="images/s2.png" id="image42" class="img2" /></div>
+   <div class="box player2" id="box44"><img src="images/s2.png" id="image43" class="img2" /></div>
+   <div class="box player2" id="box45"><img src="images/s2.png" id="image44" class="img2" /></div>
+   <div class="box player2" id="box46"><img src="images/s2.png" id="image45" class="img2" /></div>
+   <div class="box player2" id="box47"><img src="images/s2.png" id="image46" class="img2" /></div>
+   <div class="box player2" id="box48"><img src="images/s2.png" id="image47" class="img2" /></div>
+   <div class="box player2" id="box49"><img src="images/s2.png" id="image48" class="img2 stoon" /></div>
+  </div>
+  <div class="contanerbtns">
+    <div class="restBtn" id="startAgain">Anthor</div>
+    <div id="restBtnA" class="restBtnA">Re Game</div>
+   </div>
+  <div id="winner">player1 win</div>
+  <div class="stoons" id="stones">
+   <h3>STONE STORE</h3>
+   <div id="numberOfStoons">
+    player1
+    <p id="player1stoon">0</p>
+    player2
+    <p id="player2stoon">0</p>
+   </div>
+  </div>
+  <!--
     <div class="countdown-container">
         <div id="countdown">0</div>
         <div id="countdown-message">player1 playing</div>
     </div>
     -->
-    <div class="contanerbtns" style="display: flex; justify-content: space-between;">
-    <div class="restBtn" id="startAgain">Anthor</div>
-    <div id="restBtnA" class="restBtnA">Re Game</div>
-    </div>
-    <img src="images/full-screen.png" id="fullScreenBtn" alt="" srcset="">
-    <!--<script src="script.js"></script>-->
-    <script type="module">
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";          
-            const firebaseConfig = {
-              apiKey: "AIzaSyCUqhe5im-x-olF6CkavjZtABdxBaOVhmI",
-              authDomain: "game-bc3dc.firebaseapp.com",
-              databaseURL: "https://game-bc3dc-default-rtdb.firebaseio.com",
-              projectId: "game-bc3dc",
-              storageBucket: "game-bc3dc.appspot.com",
-              messagingSenderId: "247861221695",
-              appId: "1:247861221695:web:8455dde387f2d2da9c1b8a",
-              measurementId: "G-DWZ4DGYXJD"
-            };
-          
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
-            import { getDatabase, ref,remove , push, onChildAdded } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+  <img src="images/full-screen.png" id="fullScreenBtn" class="" alt="" srcset="" />
+  <!--<script src="script.js"></script>-->
+  <script type="module">
+   // Import the functions you need from the SDKs you need
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+   import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+   const firebaseConfig = {
+    apiKey: "AIzaSyCUqhe5im-x-olF6CkavjZtABdxBaOVhmI",
+    authDomain: "game-bc3dc.firebaseapp.com",
+    databaseURL: "https://game-bc3dc-default-rtdb.firebaseio.com",
+    projectId: "game-bc3dc",
+    storageBucket: "game-bc3dc.appspot.com",
+    messagingSenderId: "247861221695",
+    appId: "1:247861221695:web:8455dde387f2d2da9c1b8a",
+    measurementId: "G-DWZ4DGYXJD"
+   };
 
-            // إعداد Firebase
-            const database = getDatabase(app);
-            let GAMECODE = localStorage.getItem("GameCode");
-             // دالة لتسجيل الحركة
-            function logMove(moveData) {
-                const movesRef = ref(database, 'Games/'+GAMECODE+'/moves');
-                push(movesRef, moveData);
-            }
-    
-            // دالة للتعامل مع تحركات اللاعب
-            function handleMove(fromBoxId, targetBoxId, isStoon) {
-                const moveData = {
-                    fromBox: fromBoxId,
-                    targetBoxId: targetBoxId,
-                    isStoon: isStoon,
-                };
-                logMove(moveData);
-            }
-            const boxes = document.querySelectorAll('.box');
-            const stones = document.getElementById("stones");
-            let from = null; // Declare the 'from' variable in a broader scope
-            let img1 = stones.getElementsByClassName("img1");
-            let img2 = stones.getElementsByClassName("img2");
-            let player1stoon = document.getElementById("player1stoon");
-            let player2stoon = document.getElementById("player2stoon");
-            function updateScore(){
-                player1stoon.innerHTML = img1.length;
-                player2stoon.innerHTML = img2.length;
-            }
-            //تسجيل قيمة كل الاحجار لكل لاعب في المخزن
-            function logscore(scoreData) {
-                const scoreRef = ref(database, 'Games/'+GAMECODE+'/Score');
-                push(scoreRef, scoreData);
-            }
-    
-            // دالة للتعامل مع تحركات اللاعب
-            function handlescore(scoreOne, scoretwo, Winer) {
-                const scoreData = {
-                    scoreOne: scoreOne,
-                    scoretwo:  scoretwo,
-                    Winer: Winer
-                };
-                logscore(scoreData);
-            }
-            let notfication = document.getElementById("score");
-    //دالة تسجيل الحركة في قاعدة البيانات
-    boxes.forEach((box , index) => {
-      box.addEventListener('click', (e) => {
-            if (box.firstChild) {
-            from = box;
-            box.addEventListener("dblclick",()=>{
-                handleMove(from.id, stones.id, true);
-                if(img1.length>=22){
-                    handlescore(img1.length,img2.length,"playerTwo");
-                }else if(img2.length>=22){
-                    handlescore(img1.length,img2.length,"playerOne");
-                }else{
-                    handlescore(img1.length,img2.length,  null);
-                }
-            })
-            } else {
-            if (from) { // Check if 'from' is set
-            let boxRect = box.getBoundingClientRect();
-            let currentRect = from.getBoundingClientRect();
-            let deltaX = Math.abs(boxRect.x - currentRect.x);
-            let deltaY = Math.abs(boxRect.y - currentRect.y);
+   // Initialize Firebase
+   const app = initializeApp(firebaseConfig);
+   const analytics = getAnalytics(app);
+   import { getDatabase, ref, remove, push, onChildAdded } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
-            if ((deltaX < 90 && deltaY === 0) || (deltaY < 90 && deltaX === 0)) {
-                    handleMove(from.id,box.id,false);
-            }
-            } else {
-                console.log("No source box selected."); // Handle the case where 'from' is not set
-            }
-            }
-            /*----------*/
+   // إعداد Firebase
+   const database = getDatabase(app);
+   let GAMECODE = localStorage.getItem("GameCode");
+   // دالة لتسجيل الحركة
+   function logMove(moveData) {
+    const movesRef = ref(database, "Games/" + GAMECODE + "/moves");
+    push(movesRef, moveData);
+   }
+
+   // دالة للتعامل مع تحركات اللاعب
+   function handleMove(fromBoxId, targetBoxId, isStoon) {
+    const moveData = {
+     fromBox: fromBoxId,
+     targetBoxId: targetBoxId,
+     isStoon: isStoon
+    };
+    logMove(moveData);
+   }
+   const boxes = document.querySelectorAll(".box");
+   const stones = document.getElementById("stones");
+   let from = null; // Declare the 'from' variable in a broader scope
+   let img1 = stones.getElementsByClassName("img1");
+   let img2 = stones.getElementsByClassName("img2");
+   let player1stoon = document.getElementById("player1stoon");
+   let player2stoon = document.getElementById("player2stoon");
+   function updateScore() {
+    player1stoon.innerHTML = img1.length;
+    player2stoon.innerHTML = img2.length;
+   }
+   //تسجيل قيمة كل الاحجار لكل لاعب في المخزن
+   function logscore(scoreData) {
+    const scoreRef = ref(database, "Games/" + GAMECODE + "/Score");
+    push(scoreRef, scoreData);
+   }
+
+   // دالة للتعامل مع تحركات اللاعب
+   function handlescore(scoreOne, scoretwo, Winer) {
+    const scoreData = {
+     scoreOne: scoreOne,
+     scoretwo: scoretwo,
+     Winer: Winer
+    };
+    logscore(scoreData);
+   }
+   let notfication = document.getElementById("score");
+   //دالة تسجيل الحركة في قاعدة البيانات
+   boxes.forEach((box, index) => {
+    box.addEventListener("click", (e) => {
+     if (box.firstChild) {
+      from = box;
+      box.addEventListener("dblclick", () => {
+       handleMove(from.id, stones.id, true);
+       if (img1.length >= 22) {
+        handlescore(img1.length, img2.length, "playerTwo");
+       } else if (img2.length >= 22) {
+        handlescore(img1.length, img2.length, "playerOne");
+       } else {
+        handlescore(img1.length, img2.length, null);
+       }
       });
+     } else {
+      if (from) {
+       // Check if 'from' is set
+       let boxRect = box.getBoundingClientRect();
+       let currentRect = from.getBoundingClientRect();
+       let deltaX = Math.abs(boxRect.x - currentRect.x);
+       let deltaY = Math.abs(boxRect.y - currentRect.y);
+
+       if ((deltaX < 90 && deltaY === 0) || (deltaY < 90 && deltaX === 0)) {
+        handleMove(from.id, box.id, false);
+        /*----------*/
+        const DontHaveLeft = [0, 7, 14, 21, 28, 35, 42];
+        const DontHaveFarLeft = [1, 8, 15, 22, 29, 36, 43];
+        const DontHaveRight = [6, 13, 20, 27, 34, 41, 48];
+        const DontHaveFarRight = [5, 12, 19, 26, 33, 40, 47];
+        const DontHaveTop = [0, 1, 2, 3, 4, 5];
+        const DontHaveFarTop = [7, 8, 9, 10, 11, 12, 13];
+        const DontHaveBottom = [42, 43, 44, 45, 46, 47, 48];
+        const DontHaveFarBottom = [35, 36, 37, 38, 39, 40, 41];
+
+        function returnArrayNames(theIndex) {
+         // Define the arrays and their names
+         const arrays = {
+          DontHaveLeft,
+          DontHaveFarLeft,
+          DontHaveRight,
+          DontHaveFarRight,
+          DontHaveTop,
+          DontHaveFarTop,
+          DontHaveBottom,
+          DontHaveFarBottom
+         };
+
+         // Search for the index in the arrays
+         let foundInArrays = [];
+         for (let arrayName in arrays) {
+          if (arrays[arrayName].includes(theIndex)) {
+           foundInArrays.push(arrayName);
+          }
+         }
+         return foundInArrays.length > 0 ? foundInArrays : "none";
+        }
+
+        let leftBox, farLeftBox, rightBox, farRightBox, topBox, farTopBox, bottomBox, farBottomBox, ImageClass, myImageClass;
+
+        // Assuming 'boxes' is defined and 'index' is a valid number
+        leftBox = boxes[index - 1];
+        farLeftBox = boxes[index - 2];
+        rightBox = boxes[index + 1];
+        farRightBox = boxes[index + 2];
+        topBox = boxes[index - 7];
+        farTopBox = boxes[index - 14];
+        bottomBox = boxes[index + 7];
+        farBottomBox = boxes[index + 14];
+
+        // Get player's image class from local storage
+        myImageClass = localStorage.getItem("player");
+        ImageClass = myImageClass == 2 ? 1 : 2;
+
+        // Check if the index is not in any of the arrays
+        if (returnArrayNames(index) == "none") {
+         // Check possible moves in all directions
+         if (canMove(leftBox, ImageClass, farLeftBox, myImageClass)) {
+          handleMove(leftBox.id, "stones", true);
+         }
+         if (canMove(rightBox, ImageClass, farRightBox, myImageClass)) {
+          handleMove(rightBox.id, "stones", true);
+         }
+         if (canMove(topBox, ImageClass, farTopBox, myImageClass)) {
+          handleMove(topBox.id, "stones", true);
+         }
+         if (canMove(bottomBox, ImageClass, farBottomBox, myImageClass)) {
+          handleMove(bottomBox.id, "stones", true);
+         }
+        } else {
+         let dontHaveWhat = returnArrayNames(index);
+         if (dontHaveWhat.length === 1) {
+          let myIndex = dontHaveWhat;
+          handleMovesBasedOnDontHave(myIndex, ImageClass, myImageClass);
+         }else if(dontHaveWhat.length ===2){
+          let myIndex = dontHaveWhat;
+          handleMovesBasedOnDontHaveTwoPram(myIndex, ImageClass, myImageClass);
+         }
+        }
+
+        function canMove(boxA, imageClassA, boxB, imageClassB) {
+         return boxA.childNodes.length > 0 && boxA.childNodes[0].classList.contains("img" + imageClassA) && boxB.childNodes.length > 0 && boxB.childNodes[0].classList.contains("img" + imageClassB);
+        }
+
+        function handleMovesBasedOnDontHave(myIndex, ImageClass, myImageClass) {
+         if (myIndex.length === 1) {
+          myIndex = myIndex[0];
+          // Existing logic for single index
+          if (myIndex == "DontHaveLeft" || myIndex == "DontHaveFarLeft") {
+           if (canMove(rightBox, ImageClass, farRightBox, myImageClass)) {
+            handleMove(rightBox.id, "stones", true);
+           }
+           if (canMove(topBox, ImageClass, farTopBox, myImageClass)) {
+            handleMove(topBox.id, "stones", true);
+           }
+           if (canMove(bottomBox, ImageClass, farBottomBox, myImageClass)) {
+            handleMove(bottomBox.id, "stones", true);
+           }
+          } else if (myIndex == "DontHaveRight" || myIndex == "DontHaveFarRight") {
+           if (canMove(leftBox, ImageClass, farLeftBox, myImageClass)) {
+            handleMove(leftBox.id, "stones", true);
+           }
+           if (canMove(topBox, ImageClass, farTopBox, myImageClass)) {
+            handleMove(topBox.id, "stones", true);
+           }
+           if (canMove(bottomBox, ImageClass, farBottomBox, myImageClass)) {
+            handleMove(bottomBox.id, "stones", true);
+           }
+          } else if (myIndex == "DontHaveTop" || myIndex == "DontHaveFarTop") {
+           if (canMove(leftBox, ImageClass, farLeftBox, myImageClass)) {
+            handleMove(leftBox.id, "stones", true);
+           }
+           if (canMove(rightBox, ImageClass, farRightBox, myImageClass)) {
+            handleMove(rightBox.id, "stones", true);
+           }
+           if (canMove(bottomBox, ImageClass, farBottomBox, myImageClass)) {
+            handleMove(bottomBox.id, "stones", true);
+           }
+          } else if (myIndex == "DontHaveBottom" || myIndex == "DontHaveFarBottom") {
+           if (canMove(leftBox, ImageClass, farLeftBox, myImageClass)) {
+            handleMove(leftBox.id, "stones", true);
+           }
+           if (canMove(rightBox, ImageClass, farRightBox, myImageClass)) {
+            handleMove(rightBox.id, "stones", true);
+           }
+           if (canMove(topBox, ImageClass, farTopBox, myImageClass)) {
+            handleMove(topBox.id, "stones", true);
+           }
+          }
+         }
+        }
+        function handleMovesBasedOnDontHaveTwoPram(myIndex, ImageClass, myImageClass){
+          const myIndex1 = myIndex[0];
+          if (myIndex1 == "DontHaveLeft" || myIndex1 == "DontHaveFarLeft") {
+           if (canMove(rightBox, ImageClass, farRightBox, myImageClass)) {
+            handleMove(rightBox.id, "stones", true);
+           }
+           if (canMove(topBox, ImageClass, farTopBox, myImageClass)) {
+            handleMove(topBox.id, "stones", true);
+           }
+           if (canMove(bottomBox, ImageClass, farBottomBox, myImageClass)) {
+            handleMove(bottomBox.id, "stones", true);
+           }
+          } else if (myIndex1 == "DontHaveRight" || myIndex1 == "DontHaveFarRight") {
+           if (canMove(leftBox, ImageClass, farLeftBox, myImageClass)) {
+            handleMove(leftBox.id, "stones", true);
+           }
+           if (canMove(topBox, ImageClass, farTopBox, myImageClass)) {
+            handleMove(topBox.id, "stones", true);
+           }
+           if (canMove(bottomBox, ImageClass, farBottomBox, myImageClass)) {
+            handleMove(bottomBox.id, "stones", true);
+           }
+          } else if (myIndex1 == "DontHaveTop" || myIndex1 == "DontHaveFarTop") {
+           if (canMove(leftBox, ImageClass, farLeftBox, myImageClass)) {
+            handleMove(leftBox.id, "stones", true);
+           }
+           if (canMove(rightBox, ImageClass, farRightBox, myImageClass)) {
+            handleMove(rightBox.id, "stones", true);
+           }
+           if (canMove(bottomBox, ImageClass, farBottomBox, myImageClass)) {
+            handleMove(bottomBox.id, "stones", true);
+           }
+          } else if (myIndex1 == "DontHaveBottom" || myIndex1 == "DontHaveFarBottom") {
+           if (canMove(leftBox, ImageClass, farLeftBox, myImageClass)) {
+            handleMove(leftBox.id, "stones", true);
+           }
+           if (canMove(rightBox, ImageClass, farRightBox, myImageClass)) {
+            handleMove(rightBox.id, "stones", true);
+           }
+           if (canMove(topBox, ImageClass, farTopBox, myImageClass)) {
+            handleMove(topBox.id, "stones", true);
+           }
+          }
+
+          /*------------------------------seacendElement------------------*/
+          const myIndex2 = myIndex[1];
+          if (myIndex2 == "DontHaveLeft" || myIndex2 == "DontHaveFarLeft") {
+           if (canMove(rightBox, ImageClass, farRightBox, myImageClass)) {
+            handleMove(rightBox.id, "stones", true);
+           }
+           if (canMove(topBox, ImageClass, farTopBox, myImageClass)) {
+            handleMove(topBox.id, "stones", true);
+           }
+           if (canMove(bottomBox, ImageClass, farBottomBox, myImageClass)) {
+            handleMove(bottomBox.id, "stones", true);
+           }
+          } else if (myIndex2 == "DontHaveRight" || myIndex2 == "DontHaveFarRight") {
+           if (canMove(leftBox, ImageClass, farLeftBox, myImageClass)) {
+            handleMove(leftBox.id, "stones", true);
+           }
+           if (canMove(topBox, ImageClass, farTopBox, myImageClass)) {
+            handleMove(topBox.id, "stones", true);
+           }
+           if (canMove(bottomBox, ImageClass, farBottomBox, myImageClass)) {
+            handleMove(bottomBox.id, "stones", true);
+           }
+          } else if (myIndex2 == "DontHaveTop" || myIndex2 == "DontHaveFarTop") {
+           if (canMove(leftBox, ImageClass, farLeftBox, myImageClass)) {
+            handleMove(leftBox.id, "stones", true);
+           }
+           if (canMove(rightBox, ImageClass, farRightBox, myImageClass)) {
+            handleMove(rightBox.id, "stones", true);
+           }
+           if (canMove(bottomBox, ImageClass, farBottomBox, myImageClass)) {
+            handleMove(bottomBox.id, "stones", true);
+           }
+          } else if (myIndex2 == "DontHaveBottom" || myIndex2 == "DontHaveFarBottom") {
+           if (canMove(leftBox, ImageClass, farLeftBox, myImageClass)) {
+            handleMove(leftBox.id, "stones", true);
+           }
+           if (canMove(rightBox, ImageClass, farRightBox, myImageClass)) {
+            handleMove(rightBox.id, "stones", true);
+           }
+           if (canMove(topBox, ImageClass, farTopBox, myImageClass)) {
+            handleMove(topBox.id, "stones", true);
+           }
+          }
+        }
+       }
+      } else {
+       console.log("No source box selected."); // Handle the case where 'from' is not set
+      }
+     }
     });
+   });
 
-
-                  // مراقبة تحركات اللاعبين
-    const movesRef = ref(database, 'Games/'+GAMECODE+'/moves');
-    onChildAdded(movesRef, (snapshot) => {
+   // مراقبة تحركات اللاعبين
+   const movesRef = ref(database, "Games/" + GAMECODE + "/moves");
+   onChildAdded(movesRef, (snapshot) => {
     const move = snapshot.val();
     let targetBox = document.getElementById(move.targetBoxId);
     let fromBox = document.getElementById(move.fromBox);
 
     /*-------------------------------give index of box TESTING COOOODE--------------------------------*/
     // دالة للحصول على الصناديق المجاورة
-    let leftBox, rightBox , topBox , bottomBox;
-
-    boxes.forEach((box, index) => {
-        if (box == targetBox) {
-            leftBox = boxes[index - 2] || null; // الصندوق الأيسر  2أو 1
-            rightBox = boxes[index + 2] || null; // الصندوق الأيمن 2 أو 1
-            topBox = boxes[index - 14] || null; // الصندوق الأعلى 7 
-            bottomBox = boxes[index + 14] || null; // الصندوق الأسفل 7 
-            console.log(topBox);
-            console.log(bottomBox);
-            console.log(leftBox);
-            console.log(rightBox);
-            console.log(index);
-        }
-    });
+    boxes.forEach((box, index) => {});
     /*---------------------------------------------------------------*/
     // التحقق من وجود العناصر
     if (!targetBox) {
-        console.error("Target box not found:", move.targetBoxId);
-        return; // الخروج إذا لم يكن العنصر موجودًا
+     console.error("Target box not found:", move.targetBoxId);
+     return; // الخروج إذا لم يكن العنصر موجودًا
     }
     if (!fromBox) {
-        console.error("From box not found:", move.fromBox);
-        return; // الخروج إذا لم يكن العنصر موجودًا
+     console.error("From box not found:", move.fromBox);
+     return; // الخروج إذا لم يكن العنصر موجودًا
     }
 
     // التحقق من وجود عنصر child في fromBox
     if (fromBox.firstChild) {
-        // التأكد من أن firstChild هو عنصر صالح
-        if (fromBox.firstChild.nodeType === Node.ELEMENT_NODE) {
-            targetBox.appendChild(fromBox.firstChild);
-            fromBox.removeChild(fromBox.firstChild);
-        } else {
-            console.warn("First child is not a valid node:", fromBox.firstChild);
-        }
+     // التأكد من أن firstChild هو عنصر صالح
+     if (fromBox.firstChild.nodeType === Node.ELEMENT_NODE) {
+      targetBox.appendChild(fromBox.firstChild);
+      fromBox.removeChild(fromBox.firstChild);
+     } else {
+      console.warn("First child is not a valid node:", fromBox.firstChild);
+     }
     } else {
-        console.warn("No child to remove from fromBox:", fromBox.id);
+     console.warn("No child to remove from fromBox:", fromBox.id);
     }
     /*-------------------------testing code ---------------*/
+   });
 
-});
+   const scoreRef = ref(database, "Games/" + GAMECODE + "/Score");
+   onChildAdded(scoreRef, (snapshot) => {
+    const score = snapshot.val();
+    if (score.Winer != null) {
+     if (score.Winer == "playerOne") {
+      document.getElementById("main").style.visibility = "hidden";
+      document.getElementById("winner").style.visibility = "visible";
+      document.getElementById("winner").innerHTML = "player One win";
+     } else {
+      document.getElementById("winner").style.visibility = "visible";
+      document.getElementById("winner").innerHTML = "player Two win";
+      document.getElementById("main").style.visibility = "hidden";
+     }
+    } else {
+     player2stoon.innerHTML = score.scoretwo;
+     player1stoon.innerHTML = score.scoreOne;
+    }
+   });
 
+   // مراقبة تحركات اللاعبين
+   const playerRef = ref(database, "Games/" + GAMECODE);
+   onChildAdded(playerRef, (snapshot) => {
+    const player = snapshot.val();
+    // Get the first property key
+    const firstKey = Object.keys(player)[0];
+    // Get the value of the first property
+    if (firstKey == "player1") {
+     localStorage.setItem("playerOne", player[firstKey]);
+    } else {
+     localStorage.setItem("playerTwo", player[firstKey].toString());
+    }
+   });
 
-      const scoreRef = ref(database, 'Games/'+GAMECODE+'/Score');
-      onChildAdded(scoreRef, (snapshot) => {
-        const score = snapshot.val();
-        if(score.Winer != null){
-            if(score.Winer == "playerOne"){
-            document.getElementById("main").style.visibility = "hidden";
-            document.getElementById("winner").style.visibility = "visible";
-            document.getElementById("winner").innerHTML = "player One win";
-        }else{
-            document.getElementById("winner").style.visibility = "visible";
-            document.getElementById("winner").innerHTML = "player Two win";
-                document.getElementById("main").style.visibility = "hidden";
-            }
-        }else{
-            player2stoon.innerHTML = score.scoretwo;
-            player1stoon.innerHTML = score.scoreOne;
-        }
-      });
+   document.getElementById("restBtnA").addEventListener("click", () => {
+    const movesRef = ref(database, "Games/" + GAMECODE + "/moves");
+    const scoreRef = ref(database, "Games/" + GAMECODE + "/Score");
+    remove(movesRef);
+    remove(scoreRef);
+    location.reload();
+   });
+   document.getElementById("startAgain").addEventListener("click", () => {
+    const GamesRef = ref(database, "Games/" + GAMECODE);
+    remove(GamesRef);
+    location.href = "index.html";
+   });
 
-                        // مراقبة تحركات اللاعبين
-    const playerRef = ref(database, 'Games/'+GAMECODE);
-      onChildAdded(playerRef, (snapshot) => {
-          const player = snapshot.val();
-          // Get the first property key
-        const firstKey = Object.keys(player)[0];
-        // Get the value of the first property
-        if(firstKey == "player1"){
-            localStorage.setItem("playerOne",player[firstKey]);
-        }else{
-            localStorage.setItem("playerTwo",player[firstKey].toString());
-        }
-        
-      });
+   /*-----------------------------------moveing function -----------------------*/
+   const images = document.querySelectorAll("img");
+   const stoonsDivs = document.querySelectorAll(".stoons"); // Select the stoons divs
 
-    document.getElementById("restBtnA").addEventListener("click",()=>{
-      const movesRef = ref(database, 'Games/'+GAMECODE+'/moves');
-      const scoreRef = ref(database, 'Games/'+GAMECODE+'/Score');
-        remove(movesRef);
-        remove(scoreRef);
-        location.reload();
-    })
-    document.getElementById("startAgain").addEventListener("click" , ()=>{
-        const GamesRef = ref(database, 'Games/'+GAMECODE);
-        remove(GamesRef);
-        location.href = "index.html";
-    })
+   let player = document.querySelector(".stoon");
 
-            /*-----------------------------------moveing function -----------------------*/
-const images = document.querySelectorAll('img');
-const stoonsDivs = document.querySelectorAll('.stoons'); // Select the stoons divs
-
-let player = document.querySelector('.stoon');
-
-if (player) {
+   if (player) {
     let currentBox = player.parentElement;
-    boxes.forEach(boxone => {
-        boxone.addEventListener('click', () => {
-            boxes.forEach(onceOfAll => {
-                onceOfAll.classList.remove('active');
-            });
-            images.forEach(img => {
-                img.classList.remove('stoon');
-            });
-            if (boxone.firstChild) {
-                boxone.classList.add("active");
-                boxone.firstChild.classList.add("stoon");
-                player = boxone.firstChild;
-                currentBox = boxone;
-            }
-        });
+    boxes.forEach((boxone) => {
+     boxone.addEventListener("click", () => {
+      boxes.forEach((onceOfAll) => {
+       onceOfAll.classList.remove("active");
+      });
+      images.forEach((img) => {
+       img.classList.remove("stoon");
+      });
+      if (boxone.firstChild) {
+       boxone.classList.add("active");
+       boxone.firstChild.classList.add("stoon");
+       player = boxone.firstChild;
+       currentBox = boxone;
+      }
+     });
     });
-} else {
+   } else {
     console.error('No player image with class "stoon" found.');
-}
-    </script>
-    <script>
-        function notfication(text){
+   }
+  </script>
+  <script>
+   function notfication(text) {
     const notfication = document.getElementById("score");
-    notfication.style.display  = "block";
+    notfication.style.display = "block";
     notfication.innerHTML = text;
-    setInterval(function(){
-            notfication.style.display = "none";
-            notfication.innerHTML = "0";
-    },5000)
-}
-        if(localStorage.getItem("player") == "1"){
-            notfication("لقد قمت بإنشاء لعبة جديدة رقم  " + localStorage.getItem("GameCode") + " .");
-        }else{
-            notfication("لقد إنضممت للتو للعبة رقم " + localStorage.getItem("GameCode") + " .");
-        }
-document.getElementById("fullScreenBtn").addEventListener("click", function() {
-    // Hide the box with id 'stones'
-    document.getElementById("stones").style.display = "none";
-
-    // Center the 'main' div
+    setInterval(function () {
+     notfication.style.display = "none";
+     notfication.innerHTML = "0";
+    }, 5000);
+   }
+   if (localStorage.getItem("player") == "1") {
+    notfication("لقد قمت بإنشاء لعبة جديدة رقم  " + localStorage.getItem("GameCode") + " .");
+   } else {
+    notfication("لقد إنضممت للتو للعبة رقم " + localStorage.getItem("GameCode") + " .");
+   }
+   document.getElementById("fullScreenBtn").addEventListener("click", function () {
+    document.getElementById("stones").classList.toggle("hide");
     const mainDiv = document.getElementById("main");
-    mainDiv.style.position = "absolute";
-    mainDiv.style.top = "50%";
-    mainDiv.style.left = "50%";
-    mainDiv.style.transform = "translate(-50%, -50%)";
-    mainDiv.style.width = "600px"; // Set a fixed width for the main div
-    mainDiv.style.maxWidth = "90%"; // Ensure it doesn't exceed 90% of the viewport width
-
-    // Position 'startAgain' and 'restBtnA' under the 'main' div
-    const startAgainBtn = document.getElementById("startAgain");
-    const restBtnA = document.getElementById("restBtnA");
-
-    startAgainBtn.style.position = "absolute";
-    startAgainBtn.style.top = `${mainDiv.offsetTop + mainDiv.offsetHeight - 150}px`; // 20px below main
-    startAgainBtn.style.left = "50%";
-    startAgainBtn.style.transform = "translateX(-50%)";
-
-    restBtnA.style.position = "absolute";
-    restBtnA.style.top = `${startAgainBtn.offsetTop + startAgainBtn.offsetHeight - 150}px`; // 10px below startAgain
-    restBtnA.style.left = "50%";
-    restBtnA.style.transform = "translateX(-50%)";
-
-    // Ensure buttons are within the viewport
-    const viewportHeight = window.innerHeight;
-    const startAgainBtnBottom = startAgainBtn.offsetTop + startAgainBtn.offsetHeight;
-    const restBtnABottom = restBtnA.offsetTop + restBtnA.offsetHeight;
-
-    if (startAgainBtnBottom > viewportHeight) {
-        startAgainBtn.style.top = `${viewportHeight}px`; // Adjust if out of view
-    }
-
-    if (restBtnABottom > viewportHeight) {
-        restBtnA.style.top = `${viewportHeight - restBtnA.offsetHeight - 20}px`; // Adjust if out of view
-    }
-});
-    </script>
-</body>
+    const BtnsCont = document.getElementsByClassName("contanerbtns")[0];
+    mainDiv.classList.toggle("fullmain");
+    var img = document.getElementById("fullScreenBtn");
+            if (img.src.includes("full-screen.png")) {
+                img.src = "images/fullscreen.png";
+            } else {
+                img.src = "images/full-screen.png";
+            }
+   });
+  </script>
+  <!---- <script src="server.js"></script> -->
+ </body>
 </html>

@@ -1,241 +1,257 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
 }
 body {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(to bottom right, #74ebd5, #acb6e5); 
-    font-family: 'Roboto', sans-serif; 
-    font-size: 18px;
-    line-height: 1.6;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ height: 100vh;
+ background: linear-gradient(to bottom right, #74ebd5, #acb6e5);
+ font-family: "Roboto", sans-serif;
+ font-size: 18px;
+ line-height: 1.6;
 }
-#score{
-    font-size: 40px;
-    color: #FF6F40;
-    position: absolute;
-    top: 50px;
+#score {
+ font-size: 40px;
+ color: #ff6f40;
+ position: absolute;
+ top: 50px;
 }
 
 .game-board {
-    display: grid;
-    grid-template-columns: repeat(7, 80px);
-    grid-template-rows: repeat(7, 80px);
-    gap: 5px;
-    border: 1px solid #333;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
-    padding: 10px; 
-    background-color: rgba(255, 255, 255, 0.9); 
-    z-index: 9;
+ display: grid;
+ grid-template-columns: repeat(7, 80px);
+ grid-template-rows: repeat(7, 80px);
+ gap: 5px;
+ border: 1px solid #333;
+ border-radius: 15px;
+ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+ padding: 10px;
+ background-color: rgba(255, 255, 255, 0.9);
+ z-index: 9;
 }
 
 .box {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid #333;
-    font-size: 26px;
-    font-weight: bold;
-    border-radius: 15px;
-    transition: background-color 0.3s ease, transform 0.2s; 
-    background-color: #ffffff; 
+ width: 80px;
+ height: 80px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border: 2px solid #333;
+ font-size: 26px;
+ font-weight: bold;
+ border-radius: 15px;
+ transition: background-color 0.3s ease, transform 0.2s;
+ background-color: #ffffff;
 }
 
-
 .box:hover {
-    transform: scale(1); 
-    background-color: #e0f7fa; 
+ transform: scale(1);
+ background-color: #e0f7fa;
 }
 
 .box img {
-    width: 100%;
-    border-radius: 15px; 
+ width: 100%;
+ border-radius: 15px;
 }
 
 .active {
-    border-color: #B8001F;
-    background-color: rgba(255, 204, 204, 0.8);
+ border-color: #b8001f;
+ background-color: rgba(255, 204, 204, 0.8);
 }
 
 .player1 {
-    background-color: #3A6EA5; 
-    color: #fff; 
+ background-color: #3a6ea5;
+ color: #fff;
 }
 
 .player2 {
-    background-color: #FF6F40; 
-    color: #fff; 
+ background-color: #ff6f40;
+ color: #fff;
 }
 
 .empty {
-    background-color: #ffffff;
-    border: 2px dashed #333;
-    color: #333; 
+ background-color: #ffffff;
+ border: 2px dashed #333;
+ color: #333;
 }
 #winner {
-    position: absolute;
-    z-index: 0;
-    left: 50px;
-    width: 50%;
-    height: 100%;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column; /* Aligns text vertically */
-    justify-content: center; /* Centers content vertically */
-    font-size: 60px; /* Larger font size for emphasis */
-    color: #FFD700; /* Gold color for a winning effect */
-    text-shadow: 
-        3px 3px 5px rgba(0, 0, 0, 0.8), /* Dark shadow for depth */
-        0 0 25px rgba(255, 215, 0, 0.7), /* Glowing gold effect */
-        0 0 5px rgba(255, 215, 0, 0.9); /* Additional glow */
-    letter-spacing: 3px; /* Adds spacing between letters for a more dramatic effect */
-    font-weight: bold; /* Makes the text bold */
-    animation: pulse 1.5s infinite; /* Pulsing animation for excitement */
-    transition: transform 0.3s ease; /* Smooth transition for hover effect */
-    visibility: hidden;
+ position: absolute;
+ z-index: 0;
+ left: 50px;
+ width: 50%;
+ height: 100%;
+ text-align: center;
+ align-items: center;
+ display: flex;
+ flex-direction: column; /* Aligns text vertically */
+ justify-content: center; /* Centers content vertically */
+ font-size: 60px; /* Larger font size for emphasis */
+ color: #ffd700; /* Gold color for a winning effect */
+ text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.8), /* Dark shadow for depth */ 0 0 25px rgba(255, 215, 0, 0.7), /* Glowing gold effect */ 0 0 5px rgba(255, 215, 0, 0.9); /* Additional glow */
+ letter-spacing: 3px; /* Adds spacing between letters for a more dramatic effect */
+ font-weight: bold; /* Makes the text bold */
+ animation: pulse 1.5s infinite; /* Pulsing animation for excitement */
+ transition: transform 0.3s ease; /* Smooth transition for hover effect */
+ visibility: hidden;
 }
-
 
 /* Keyframes for pulsing animation */
 @keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(0.95);
-    }
-    100% {
-        transform: scale(1);
-    }
+ 0% {
+  transform: scale(1);
+ }
+ 50% {
+  transform: scale(0.95);
+ }
+ 100% {
+  transform: scale(1);
+ }
 }
 
 .stoons {
-    background-color: rgb(126 0 0 / 80%);
-    background-size: cover;
-    display: grid;
-    grid-template-columns: repeat(7, 60px);
-    grid-template-rows: repeat(7, 60px);
-    gap: 5px;
-    position: relative;
-    text-align: center;
-    border: 1px solid #333;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    padding: 20px;
+ background-color: rgb(126 0 0 / 80%);
+ background-size: cover;
+ display: grid;
+ grid-template-columns: repeat(7, 60px);
+ grid-template-rows: repeat(7, 60px);
+ gap: 5px;
+ position: relative;
+ text-align: center;
+ border: 1px solid #333;
+ border-radius: 15px;
+ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+ padding: 20px;
 }
 
 .stoons img {
-    width: 60px;
-    border-radius: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
+ width: 60px;
+ border-radius: 15px;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+ transition: transform 0.2s;
 }
 
 .stoons img:hover {
-    transform: scale(1.1);
+ transform: scale(1.1);
 }
 
 .stoons h3 {
-    position: absolute;
-    top: -40px;
-    width: 100%;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+ position: absolute;
+ top: -40px;
+ width: 100%;
+ color: white;
+ font-size: 20px;
+ font-weight: bold;
+ text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .stoons h3::before {
-    content: "";
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 2px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+ content: "";
+ position: absolute;
+ bottom: -10px;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 100px;
+ height: 2px;
+ background-color: #fff;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #numberOfStoons {
-    position: absolute;
-    width: 500px;
-    bottom: -60px;
-    left: 50%;
-    padding: 0px 50px;
-    transform: translateX(-50%);
-    font-size: 28px;
-    font-weight: 600;
-    color: #FFFFFF;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    /* padding: 10px 20px; */
-    border-radius: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease, background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-family: 'Roboto', sans-serif;
+ position: absolute;
+ width: 500px;
+ bottom: -60px;
+ left: 50%;
+ padding: 0px 50px;
+ transform: translateX(-50%);
+ font-size: 28px;
+ font-weight: 600;
+ color: #ffffff;
+ text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+ /* padding: 10px 20px; */
+ border-radius: 25px;
+ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+ transition: transform 0.2s ease, background-color 0.3s ease;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ font-family: "Roboto", sans-serif;
 }
-#numberOfStoons p{
-    color: brown;
+#numberOfStoons p {
+ color: brown;
 }
 .countdown-container {
-    background-color: #4CAF50;
-    border-radius: 50px;
-    padding: 15px 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    top: 50px;
-    right: 50px;
+ background-color: #4caf50;
+ border-radius: 50px;
+ padding: 15px 25px;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ position: absolute;
+ top: 50px;
+ right: 50px;
 }
 
 #countdown {
-    font-size: 3rem;
-    color: #fff;
-    text-align: center;
-    font-weight: bold;
+ font-size: 3rem;
+ color: #fff;
+ text-align: center;
+ font-weight: bold;
 }
-#countdown-message{
-    display: none;
+#countdown-message {
+ display: none;
 }
-.restBtn, .restBtnA {
-    position: fixed; /* Change to fixed to keep it at the bottom */
-    padding: 15px 40px; /* Adjust padding for better appearance */
-    font-size: 28px; /* Font size */
-    color: #fff; /* Text color */
-    border-radius: 10px; /* Rounded corners */
-    cursor: pointer; 
-    bottom: 20px; /* Position the buttons at the bottom */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a box shadow */
-    transition: background-color 0.3s ease, transform 0.2s; /* Add a transition effect */
+.contanerbtns {
+ display: flex;
+ justify-content: space-around;
+ position: absolute;
+ left: 50%;
+ top: 100%;
+ transform: translate(-50%,-100%);
+}
+.restBtn,
+.restBtnA {
+ padding: 15px 40px; /* Adjust padding for better appearance */
+ font-size: 20px; /* Font size */
+ color: #fff; /* Text color */
+ border: 2px solid #fff; /* Add a border for the second button */
+ cursor: pointer;
+ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a box shadow */
+ transition: all 0.3s ease; /* Add a transition effect */
 }
 
 .restBtn {
-    left: 30%; /* Position the first button */
-    background-color: #FF6F40; /* Button color */
+ background-color: #ff6f40; /* Button color */
+ border-right: none;
 }
 
 .restBtn:hover {
-    background-color: #FFC107; /* Change the background color on hover */
-    transform: scale(1.1); /* Add a scale effect on hover */
+ background-color: #ffc107; /* Change the background color on hover */
 }
 
 .restBtnA {
-    left: 60%; /* Position the second button */
-    background-color: #2196F3; /* Change the background color for the second button */
-    border: 2px solid #fff; /* Add a border for the second button */
+ background-color: #2196f3; /* Change the background color for the second button */
+ border-left: none;
 }
 
 .restBtnA:hover {
-    background-color: #03A9F4; /* Change the background color on hover for the second button */
-    transform: scale(1.1); /* Add a scale effect on hover */
+ background-color: #03a9f4; /* Change the background color on hover for the second button */
+}
+#fullScreenBtn {
+ position: absolute;
+ top: 10px;
+ right: 10px;
+ width: 30px;
+ cursor: pointer;
+}
+.fullmain {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ max-width: 100vw;
+}
+
+.hide {
+ display: none;
 }
